@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		625615EEE292519A93BEBAA0 /* Pods_lettuce_cook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B74DBBC496AF1101B27297 /* Pods_lettuce_cook.framework */; };
 		84B1117E278E3E0400B71776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117D278E3E0400B71776 /* AppDelegate.swift */; };
 		84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117F278E3E0400B71776 /* SceneDelegate.swift */; };
 		84B11182278E3E0400B71776 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B11181278E3E0400B71776 /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AEEB46E8596219B5CC89170 /* Pods-lettuce-cook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.debug.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.debug.xcconfig"; sourceTree = "<group>"; };
+		849882CA57AEE83748C3D932 /* Pods-lettuce-cook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.release.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.release.xcconfig"; sourceTree = "<group>"; };
 		84B1117A278E3E0400B71776 /* lettuce-cook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lettuce-cook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1117D278E3E0400B71776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B1117F278E3E0400B71776 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		84B11189278E3E0700B71776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B1118C278E3E0700B71776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B1118E278E3E0700B71776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86B74DBBC496AF1101B27297 /* Pods_lettuce_cook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lettuce_cook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625615EEE292519A93BEBAA0 /* Pods_lettuce_cook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1942B3758F9F1D474CC4A4C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86B74DBBC496AF1101B27297 /* Pods_lettuce_cook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A50B28E6110A84C3955ED12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AEEB46E8596219B5CC89170 /* Pods-lettuce-cook.debug.xcconfig */,
+				849882CA57AEE83748C3D932 /* Pods-lettuce-cook.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		84B11171278E3E0400B71776 = {
 			isa = PBXGroup;
 			children = (
 				84B1117C278E3E0400B71776 /* lettuce-cook */,
 				84B1117B278E3E0400B71776 /* Products */,
+				2A50B28E6110A84C3955ED12 /* Pods */,
+				1942B3758F9F1D474CC4A4C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84B11191278E3E0700B71776 /* Build configuration list for PBXNativeTarget "lettuce-cook" */;
 			buildPhases = (
+				23192D859D488027F7AB9322 /* [CP] Check Pods Manifest.lock */,
 				84B11176278E3E0400B71776 /* Sources */,
 				84B11177278E3E0400B71776 /* Frameworks */,
 				84B11178278E3E0400B71776 /* Resources */,
+				FEAC64879750EA9D64AA60C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23192D859D488027F7AB9322 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lettuce-cook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEAC64879750EA9D64AA60C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84B11176278E3E0400B71776 /* Sources */ = {
@@ -288,6 +357,7 @@
 		};
 		84B11192278E3E0700B71776 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AEEB46E8596219B5CC89170 /* Pods-lettuce-cook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,6 +365,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "lettuce-cook/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = LettuceCook;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -315,6 +386,7 @@
 		};
 		84B11193278E3E0700B71776 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 849882CA57AEE83748C3D932 /* Pods-lettuce-cook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,6 +394,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "lettuce-cook/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = LettuceCook;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
