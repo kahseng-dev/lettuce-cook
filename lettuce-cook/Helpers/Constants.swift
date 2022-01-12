@@ -13,6 +13,10 @@ struct Constants {
         static let recipeDetails = "RecipeDetails"
     }
     
+    struct Cell {
+        static let browseCell = "browseCell"
+    }
+    
     struct Firebase {
         static let databaseURL = "https://lettuce-cook-default-rtdb.asia-southeast1.firebasedatabase.app/"
     }

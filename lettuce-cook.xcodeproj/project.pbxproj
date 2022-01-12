@@ -12,6 +12,7 @@
 		845E6957278EE10000BF087F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6956278EE10000BF087F /* Meal.swift */; };
 		845E6959278EE1ED00BF087F /* MealAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6958278EE1ED00BF087F /* MealAPIResponse.swift */; };
 		845E695B278F0C8A00BF087F /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E695A278F0C8A00BF087F /* RecipeDetailsViewController.swift */; };
+		845E695F278F27CA00BF087F /* BrowseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E695E278F27CA00BF087F /* BrowseCollectionViewCell.swift */; };
 		84B1117E278E3E0400B71776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117D278E3E0400B71776 /* AppDelegate.swift */; };
 		84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117F278E3E0400B71776 /* SceneDelegate.swift */; };
 		84B11182278E3E0400B71776 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B11181278E3E0400B71776 /* HomeViewController.swift */; };
@@ -32,6 +33,7 @@
 		845E6956278EE10000BF087F /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		845E6958278EE1ED00BF087F /* MealAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAPIResponse.swift; sourceTree = "<group>"; };
 		845E695A278F0C8A00BF087F /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		845E695E278F27CA00BF087F /* BrowseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCollectionViewCell.swift; sourceTree = "<group>"; };
 		849882CA57AEE83748C3D932 /* Pods-lettuce-cook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.release.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.release.xcconfig"; sourceTree = "<group>"; };
 		84B1117A278E3E0400B71776 /* lettuce-cook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lettuce-cook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1117D278E3E0400B71776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		845E695D278F27A000BF087F /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				845E695E278F27CA00BF087F /* BrowseCollectionViewCell.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
 		84B11171278E3E0400B71776 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		84B1117C278E3E0400B71776 /* lettuce-cook */ = {
 			isa = PBXGroup;
 			children = (
+				845E695D278F27A000BF087F /* CollectionViews */,
 				845E6955278EE0F600BF087F /* Models */,
 				8437A7F2278E6002002416F1 /* APICallers */,
 				84B11197278E421200B71776 /* Helpers */,
@@ -270,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845E6959278EE1ED00BF087F /* MealAPIResponse.swift in Sources */,
+				845E695F278F27CA00BF087F /* BrowseCollectionViewCell.swift in Sources */,
 				845E6957278EE10000BF087F /* Meal.swift in Sources */,
 				84E9551F278E498C009821EB /* LoginViewController.swift in Sources */,
 				84E9551D278E4501009821EB /* ProfileViewController.swift in Sources */,
