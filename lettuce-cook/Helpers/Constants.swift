@@ -10,6 +10,7 @@ import Foundation
 struct Constants {
     struct Storyboard {
         static let main = "Main"
+        static let recipeDetails = "RecipeDetails"
     }
     
     struct Firebase {

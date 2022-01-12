@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var featuredMealImage: UIImageView!
     @IBOutlet weak var featuredMealName: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,19 @@ class HomeViewController: UIViewController {
                         DispatchQueue.main.async {
                             self?.featuredMealName.text = meals[0].strMeal
                             self?.featuredMealImage.image = UIImage(data: data)
+                            
+                            let imageTap = UITapGestureRecognizer(target: self, action: #selector(self?.featureImageTap))
+                            
+                            let viewMeal = Meal(idMeal: meals[0].idMeal,
+                                                strMeal: meals[0].strMeal,
+                                                strCategory: meals[0].strCategory,
+                                                strArea: meals[0].strArea,
+                                                strMealThumb: meals[0].strMealThumb)
+                            
+                            self?.appDelegate.viewMeal = viewMeal
+                            
+                            self?.featuredMealImage.isUserInteractionEnabled = true
+                            self?.featuredMealImage.addGestureRecognizer(imageTap)
                         }
                     }.resume()
                 }
@@ -45,5 +60,15 @@ class HomeViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    @objc func featureImageTap(tapGestureRecognizer: UITapGestureRecognizer) {
+        transitionToRecipeDetails()
+    }
+    
+    func transitionToRecipeDetails() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.recipeDetails) as! RecipeDetailsViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
