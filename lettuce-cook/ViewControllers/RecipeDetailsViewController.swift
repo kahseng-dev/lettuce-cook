@@ -20,6 +20,10 @@ class RecipeDetailsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func recipeBookmarkButton(_ sender: Any) {
+        
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
