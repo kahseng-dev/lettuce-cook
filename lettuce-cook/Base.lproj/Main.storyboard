@@ -169,13 +169,13 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-JU-0M1">
-                                <rect key="frame" x="20" y="448" width="374" height="21"/>
+                                <rect key="frame" x="20" y="458" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdt-wq-IMf">
-                                <rect key="frame" x="20" y="479" width="374" height="21"/>
+                                <rect key="frame" x="20" y="489" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -221,11 +221,10 @@
                             <constraint firstItem="abh-Lr-6oc" firstAttribute="leading" secondItem="NiX-NI-mkh" secondAttribute="leading" constant="30" id="HJ7-3g-5Wd"/>
                             <constraint firstItem="6Ev-JU-0M1" firstAttribute="leading" secondItem="NiX-NI-mkh" secondAttribute="leading" constant="20" id="J9T-9r-ZfD"/>
                             <constraint firstItem="NiX-NI-mkh" firstAttribute="trailing" secondItem="Hdt-wq-IMf" secondAttribute="trailing" constant="20" id="Llg-4K-me5"/>
-                            <constraint firstItem="NiX-NI-mkh" firstAttribute="trailing" secondItem="nHv-eg-6Ma" secondAttribute="trailing" constant="183" id="Mk1-Gr-lHk"/>
                             <constraint firstItem="mSO-ga-FDY" firstAttribute="top" secondItem="bAv-jt-ZBD" secondAttribute="top" id="STZ-Qg-gH0"/>
                             <constraint firstItem="Hdt-wq-IMf" firstAttribute="top" secondItem="6Ev-JU-0M1" secondAttribute="bottom" constant="10" id="TdV-EG-3mc"/>
                             <constraint firstItem="Hdt-wq-IMf" firstAttribute="leading" secondItem="NiX-NI-mkh" secondAttribute="leading" constant="20" id="V1G-lx-ywl"/>
-                            <constraint firstItem="6Ev-JU-0M1" firstAttribute="top" secondItem="nHv-eg-6Ma" secondAttribute="bottom" constant="20" id="ahV-5S-Obm"/>
+                            <constraint firstItem="6Ev-JU-0M1" firstAttribute="top" secondItem="nHv-eg-6Ma" secondAttribute="bottom" constant="30" id="ahV-5S-Obm"/>
                             <constraint firstItem="mSO-ga-FDY" firstAttribute="leading" secondItem="NiX-NI-mkh" secondAttribute="leading" id="e9y-Ls-deZ"/>
                             <constraint firstItem="Yu9-Qm-1hU" firstAttribute="top" secondItem="NiX-NI-mkh" secondAttribute="top" constant="250" id="qsy-VC-CJM"/>
                             <constraint firstItem="Yu9-Qm-1hU" firstAttribute="leading" secondItem="NiX-NI-mkh" secondAttribute="leading" constant="30" id="see-2k-lyi"/>
@@ -235,6 +234,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="recipeBookmarkButtonUI" destination="nHv-eg-6Ma" id="3HY-HC-mcS"/>
                         <outlet property="recipeImage" destination="mSO-ga-FDY" id="Uhn-eY-rxu"/>
                         <outlet property="recipeInstruction" destination="Hdt-wq-IMf" id="lvc-wJ-M6x"/>
                         <outlet property="recipeName" destination="Yu9-Qm-1hU" id="OAA-Hz-S4C"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RecipeDetailsViewController: UIViewController {
     
@@ -15,6 +16,8 @@ class RecipeDetailsViewController: UIViewController {
     
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeInstruction: UILabel!
+    
+    @IBOutlet weak var recipeBookmarkButtonUI: UIButton!
     
     @IBAction func recipeBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -28,6 +31,16 @@ class RecipeDetailsViewController: UIViewController {
         .lightContent
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let user = FirebaseAuth.Auth.auth().currentUser
+        
+        if user == nil {
+            recipeBookmarkButtonUI.isEnabled = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,11 +48,8 @@ class RecipeDetailsViewController: UIViewController {
         recipeName.layer.shadowOpacity = 0.8
         recipeName.layer.shadowRadius = 2
         
-        // fetch meal data used for viewing its details
-        let viewMeal = appDelegate.viewMeal
-        
-        // fetch image
-        let imageURL = URL(string: viewMeal.strMealThumb!)
+        let viewMeal = appDelegate.viewMeal // fetch meal data used for viewing its details
+        let imageURL = URL(string: viewMeal.strMealThumb!) // fetch image
         
         URLSession.shared.dataTask(with: imageURL!) { [weak self] data, _, error in
             guard let data = data, error == nil else {
