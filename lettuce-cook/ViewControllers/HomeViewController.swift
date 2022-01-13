@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var mealList:[Meal] = []
+    var featuredMeal:Meal = Meal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +50,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             
                             let imageTap = UITapGestureRecognizer(target: self, action: #selector(self?.recipeImageTap))
                             
-                            let viewMeal = Meal(idMeal: meals[0].idMeal,
+                            self?.featuredMeal = Meal(idMeal: meals[0].idMeal,
                                                 strMeal: meals[0].strMeal,
                                                 strCategory: meals[0].strCategory,
                                                 strArea: meals[0].strArea,
                                                 strMealThumb: meals[0].strMealThumb)
-                            
-                            self?.appDelegate.viewMeal = viewMeal
                             
                             self?.featuredMealImage.isUserInteractionEnabled = true
                             self?.featuredMealImage.addGestureRecognizer(imageTap)
@@ -92,6 +91,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @objc func recipeImageTap(tapGestureRecognizer: UITapGestureRecognizer) {
+        appDelegate.viewMeal = featuredMeal
         transitionToRecipeDetails()
     }
     
