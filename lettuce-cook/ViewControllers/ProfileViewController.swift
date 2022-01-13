@@ -25,6 +25,14 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func profileLoginButton(_ sender: Any) {
+        transitionToLogin()
+    }
+    
+    @IBAction func profileSignUpButton(_ sender: Any) {
+        transitionToSignUp()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,5 +69,17 @@ class ProfileViewController: UIViewController {
     
     func displayDefaultDescription() {
         profileDescriptionLabel.text = "Sign Up or Log In to store your bookmarks and shopping list."
+    }
+    
+    func transitionToSignUp() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.signUp) as! SignUpViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    func transitionToLogin() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.login) as! LoginViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

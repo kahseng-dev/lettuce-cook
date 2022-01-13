@@ -10,11 +10,16 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var signUpErrorLabel: UILabel!
     
     @IBOutlet weak var signUpUsernameField: UITextField!
     @IBOutlet weak var signUpEmailField: UITextField!
     @IBOutlet weak var signUpPasswordField: UITextField!
+    
+    @IBAction func signUpDismissButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func signUpButton(_ sender: Any) {
         guard let username = signUpUsernameField.text, !username.isEmpty,

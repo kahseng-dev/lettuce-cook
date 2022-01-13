@@ -9,10 +9,15 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var loginErrorLabel: UILabel!
     
     @IBOutlet weak var loginEmailField: UITextField!
     @IBOutlet weak var loginPasswordField: UITextField!
+    
+    @IBAction func loginDismissButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func loginButton(_ sender: Any) {
         guard let email = loginEmailField.text, !email.isEmpty,
