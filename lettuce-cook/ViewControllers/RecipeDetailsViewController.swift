@@ -71,40 +71,44 @@ class RecipeDetailsViewController: UIViewController {
     }
     
     func checkBookmark() {
-        let userID = user!.uid
-        let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
-        
-        ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { snapshot in
-            let bookmarks = snapshot.value as? [String]
-            if bookmarks != nil && bookmarks!.contains(self.viewMeal.idMeal!) {
-                self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                return
-            }
-        })
+        if user != nil {
+            let userID = user!.uid
+            let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
+            
+            ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { snapshot in
+                let bookmarks = snapshot.value as? [String]
+                if bookmarks != nil && bookmarks!.contains(self.viewMeal.idMeal!) {
+                    self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                    return
+                }
+            })
+        }
     }
     
     func setBookmark() {
-        let userID = user!.uid
-        let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
-        
-        ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { [self] snapshot in
-            var bookmarks = snapshot.value as? [String]
+        if user != nil {
+            let userID = user!.uid
+            let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
             
-            if bookmarks == nil {
-                bookmarks = []
-            }
-            
-            if bookmarks!.contains(self.viewMeal.idMeal!) {
-                bookmarks = bookmarks?.filter { $0 != self.viewMeal.idMeal }
+            ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { [self] snapshot in
+                var bookmarks = snapshot.value as? [String]
+                
+                if bookmarks == nil {
+                    bookmarks = []
+                }
+                
+                if bookmarks!.contains(self.viewMeal.idMeal!) {
+                    bookmarks = bookmarks?.filter { $0 != self.viewMeal.idMeal }
+                    ref.child("users/\(userID)/bookmarks").setValue(bookmarks)
+                    self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                    return
+                }
+                
+                bookmarks?.append(self.viewMeal.idMeal!)
                 ref.child("users/\(userID)/bookmarks").setValue(bookmarks)
-                self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
                 return
-            }
-            
-            bookmarks?.append(self.viewMeal.idMeal!)
-            ref.child("users/\(userID)/bookmarks").setValue(bookmarks)
-            self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            return
-        })
+            })
+        }
     }
 }
