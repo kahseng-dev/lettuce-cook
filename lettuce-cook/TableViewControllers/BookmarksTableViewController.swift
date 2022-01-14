@@ -74,8 +74,8 @@ class BookmarksTableViewController: UITableViewController {
             
             DispatchQueue.main.async {
                 cell.bookmarkLabel?.text = bookmark.strMeal
-                cell.bookmarkImage.layer.cornerRadius = 10
                 cell.bookmarkImage?.image = UIImage(data: data)
+                cell.bookmarkImage.layer.cornerRadius = 10
             }
         }.resume()
         

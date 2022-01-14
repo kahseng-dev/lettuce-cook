@@ -16,6 +16,12 @@
 		845E69672790687C00BF087F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E69662790687C00BF087F /* TabBarController.swift */; };
 		845E696E27916AC500BF087F /* BookmarksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E696D27916AC500BF087F /* BookmarksTableViewController.swift */; };
 		845E697027916AD800BF087F /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E696F27916AD800BF087F /* BookmarkTableViewCell.swift */; };
+		845E69722791908400BF087F /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E69712791908400BF087F /* RecipeTableViewCell.swift */; };
+		845E6974279190A900BF087F /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6973279190A900BF087F /* RecipeTableViewController.swift */; };
+		845E697627919C2400BF087F /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E697527919C2400BF087F /* CategoriesTableViewController.swift */; };
+		845E697827919C3A00BF087F /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E697727919C3A00BF087F /* CategoriesTableViewCell.swift */; };
+		845E697A2791AF4100BF087F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E69792791AF4100BF087F /* Category.swift */; };
+		845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E697B2791B05700BF087F /* CategoriesAPIResponse.swift */; };
 		84B1117E278E3E0400B71776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117D278E3E0400B71776 /* AppDelegate.swift */; };
 		84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117F278E3E0400B71776 /* SceneDelegate.swift */; };
 		84B11182278E3E0400B71776 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B11181278E3E0400B71776 /* HomeViewController.swift */; };
@@ -40,6 +46,12 @@
 		845E69662790687C00BF087F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		845E696D27916AC500BF087F /* BookmarksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableViewController.swift; sourceTree = "<group>"; };
 		845E696F27916AD800BF087F /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		845E69712791908400BF087F /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		845E6973279190A900BF087F /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
+		845E697527919C2400BF087F /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		845E697727919C3A00BF087F /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		845E69792791AF4100BF087F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		845E697B2791B05700BF087F /* CategoriesAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPIResponse.swift; sourceTree = "<group>"; };
 		849882CA57AEE83748C3D932 /* Pods-lettuce-cook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.release.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.release.xcconfig"; sourceTree = "<group>"; };
 		84B1117A278E3E0400B71776 /* lettuce-cook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lettuce-cook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1117D278E3E0400B71776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +112,8 @@
 			children = (
 				845E6956278EE10000BF087F /* Meal.swift */,
 				845E6958278EE1ED00BF087F /* MealAPIResponse.swift */,
+				845E69792791AF4100BF087F /* Category.swift */,
+				845E697B2791B05700BF087F /* CategoriesAPIResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				845E696F27916AD800BF087F /* BookmarkTableViewCell.swift */,
+				845E69712791908400BF087F /* RecipeTableViewCell.swift */,
+				845E697727919C3A00BF087F /* CategoriesTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -132,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				845E696D27916AC500BF087F /* BookmarksTableViewController.swift */,
+				845E6973279190A900BF087F /* RecipeTableViewController.swift */,
+				845E697527919C2400BF087F /* CategoriesTableViewController.swift */,
 			);
 			path = TableViewControllers;
 			sourceTree = "<group>";
@@ -321,13 +339,19 @@
 				84E9551F278E498C009821EB /* LoginViewController.swift in Sources */,
 				84E9551D278E4501009821EB /* ProfileViewController.swift in Sources */,
 				84E95521278E4998009821EB /* SignUpViewController.swift in Sources */,
+				845E697A2791AF4100BF087F /* Category.swift in Sources */,
 				84B11199278E422D00B71776 /* Constants.swift in Sources */,
+				845E697827919C3A00BF087F /* CategoriesTableViewCell.swift in Sources */,
+				845E6974279190A900BF087F /* RecipeTableViewController.swift in Sources */,
 				8437A7F4278E6013002416F1 /* MealAPICaller.swift in Sources */,
+				845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */,
+				845E697627919C2400BF087F /* CategoriesTableViewController.swift in Sources */,
 				845E695B278F0C8A00BF087F /* RecipeDetailsViewController.swift in Sources */,
 				84B11182278E3E0400B71776 /* HomeViewController.swift in Sources */,
 				845E696E27916AC500BF087F /* BookmarksTableViewController.swift in Sources */,
 				84B1117E278E3E0400B71776 /* AppDelegate.swift in Sources */,
 				84B11188278E3E0400B71776 /* lettuce_cook.xcdatamodeld in Sources */,
+				845E69722791908400BF087F /* RecipeTableViewCell.swift in Sources */,
 				84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,6 @@
 import UIKit
 
 class BookmarkTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var bookmarkImage: UIImageView!
     @IBOutlet weak var bookmarkLabel: UILabel!
-    
 }
