@@ -7,10 +7,15 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class RecipeDetailsViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let user = FirebaseAuth.Auth.auth().currentUser
+    
+    var viewMeal:Meal = Meal()
+    var isBookmarked:Bool = false
     
     @IBOutlet weak var recipeImage: UIImageView!
     
@@ -24,21 +29,18 @@ class RecipeDetailsViewController: UIViewController {
     }
     
     @IBAction func recipeBookmarkButton(_ sender: Any) {
-        
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+        setBookmark()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let user = FirebaseAuth.Auth.auth().currentUser
-        
-        if user == nil {
+        if self.user == nil {
             recipeBookmarkButtonUI.isEnabled = false
         }
+        
+        viewMeal = appDelegate.viewMeal
+        checkBookmark()
     }
     
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ class RecipeDetailsViewController: UIViewController {
         recipeName.layer.shadowOpacity = 0.8
         recipeName.layer.shadowRadius = 2
         
-        let viewMeal = appDelegate.viewMeal // fetch meal data used for viewing its details
+        viewMeal = appDelegate.viewMeal // fetch meal data used for viewing its details
         let imageURL = URL(string: viewMeal.strMealThumb!) // fetch image
         
         URLSession.shared.dataTask(with: imageURL!) { [weak self] data, _, error in
@@ -57,10 +59,52 @@ class RecipeDetailsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self?.recipeName.text = viewMeal.strMeal
-                self?.recipeInstruction.text = viewMeal.strMeal
+                self?.recipeName.text = self?.viewMeal.strMeal
+                self?.recipeInstruction.text = self?.viewMeal.strMeal
                 self?.recipeImage.image = UIImage(data: data)
             }
         }.resume()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
+    func checkBookmark() {
+        let userID = user!.uid
+        let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
+        
+        ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { snapshot in
+            let bookmarks = snapshot.value as? [String]
+            if bookmarks != nil && bookmarks!.contains(self.viewMeal.idMeal!) {
+                self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                return
+            }
+        })
+    }
+    
+    func setBookmark() {
+        let userID = user!.uid
+        let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
+        
+        ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { [self] snapshot in
+            var bookmarks = snapshot.value as? [String]
+            
+            if bookmarks == nil {
+                bookmarks = []
+            }
+            
+            if bookmarks!.contains(self.viewMeal.idMeal!) {
+                bookmarks = bookmarks?.filter { $0 != self.viewMeal.idMeal }
+                ref.child("users/\(userID)/bookmarks").setValue(bookmarks)
+                self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                return
+            }
+            
+            bookmarks?.append(self.viewMeal.idMeal!)
+            ref.child("users/\(userID)/bookmarks").setValue(bookmarks)
+            self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            return
+        })
     }
 }

@@ -17,6 +17,7 @@ struct Constants {
     
     struct Cell {
         static let browseCell = "browseCell"
+        static let bookmarkCell = "bookmarkCell"
     }
     
     struct Firebase {

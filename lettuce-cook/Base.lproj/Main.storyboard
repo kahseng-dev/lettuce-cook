@@ -118,30 +118,60 @@
             <point key="canvasLocation" x="1844.9275362318842" y="-236.38392857142856"/>
         </scene>
         <!--Bookmarks-->
-        <scene sceneID="Lj1-TD-fEI">
+        <scene sceneID="4Ae-sZ-OSg">
             <objects>
-                <viewController id="x1y-hQ-c4h" customClass="BookmarksViewController" customModule="lettuce_cook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZHp-fJ-ZYe">
+                <tableViewController id="THE-7I-Ads" customClass="BookmarksTableViewController" customModule="lettuce_cook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yiQ-As-YYm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z1L-Uh-333">
-                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="993-sA-br7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="z1L-Uh-333" secondAttribute="bottom" id="1Au-vA-ezS"/>
-                            <constraint firstItem="z1L-Uh-333" firstAttribute="leading" secondItem="993-sA-br7" secondAttribute="leading" id="93I-UR-Meo"/>
-                            <constraint firstItem="z1L-Uh-333" firstAttribute="top" secondItem="993-sA-br7" secondAttribute="top" id="KbQ-Nm-Ni8"/>
-                            <constraint firstItem="z1L-Uh-333" firstAttribute="trailing" secondItem="993-sA-br7" secondAttribute="trailing" id="oIA-y4-p6X"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Bookmarks" id="Ctv-aP-MsE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gva-Xz-Dd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookmarkCell" id="XCt-vZ-eex" customClass="BookmarkTableViewCell" customModule="lettuce_cook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XCt-vZ-eex" id="iNd-Zd-iEs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pu2-HW-pzj">
+                                            <rect key="frame" x="20" y="8" width="120" height="74"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="Dyd-ev-xcc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6o-a9-G4L">
+                                            <rect key="frame" x="160" y="31" width="214" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="J6o-a9-G4L" firstAttribute="centerY" secondItem="iNd-Zd-iEs" secondAttribute="centerY" id="2kC-b2-H6M"/>
+                                        <constraint firstItem="pu2-HW-pzj" firstAttribute="leading" secondItem="iNd-Zd-iEs" secondAttribute="leading" constant="20" symbolic="YES" id="3av-oR-d10"/>
+                                        <constraint firstItem="J6o-a9-G4L" firstAttribute="leading" secondItem="pu2-HW-pzj" secondAttribute="trailing" constant="20" id="7ov-xw-a0b"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="J6o-a9-G4L" secondAttribute="trailing" constant="20" id="OXb-5Z-7on"/>
+                                        <constraint firstItem="pu2-HW-pzj" firstAttribute="top" secondItem="iNd-Zd-iEs" secondAttribute="top" constant="8" id="PzE-Eh-AYK"/>
+                                        <constraint firstItem="J6o-a9-G4L" firstAttribute="top" secondItem="iNd-Zd-iEs" secondAttribute="topMargin" constant="20" id="TpP-ce-cR5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="J6o-a9-G4L" secondAttribute="bottom" constant="20" id="m0z-tf-4Xk"/>
+                                        <constraint firstAttribute="bottom" secondItem="pu2-HW-pzj" secondAttribute="bottom" constant="8" id="n8l-Rg-IgF"/>
+                                        <constraint firstItem="pu2-HW-pzj" firstAttribute="centerY" secondItem="iNd-Zd-iEs" secondAttribute="centerY" id="oPR-TN-tZC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookmarkImage" destination="pu2-HW-pzj" id="UJ0-lB-myy"/>
+                                    <outlet property="bookmarkLabel" destination="J6o-a9-G4L" id="6es-q5-Fke"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="THE-7I-Ads" id="lGB-6a-om8"/>
+                            <outlet property="delegate" destination="THE-7I-Ads" id="Wnd-tW-JbO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Bookmarks" id="foQ-8T-tCC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsO-vB-Z48" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="533.70535714285711"/>
         </scene>
@@ -552,8 +582,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="4nG-kW-Mb3" kind="relationship" relationship="viewControllers" id="z8B-L3-U1h"/>
-                        <segue destination="8cw-K3-QG4" kind="relationship" relationship="viewControllers" id="9Kg-Hg-vWt"/>
-                        <segue destination="RIe-oh-FQ9" kind="relationship" relationship="viewControllers" id="qJV-Rj-m6C"/>
+                        <segue destination="ksf-rx-TE5" kind="relationship" relationship="viewControllers" id="uA9-db-jVx"/>
+                        <segue destination="RIe-oh-FQ9" kind="relationship" relationship="viewControllers" id="vED-TO-2gt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5k-kI-a5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -580,23 +610,23 @@
             <point key="canvasLocation" x="974" y="1567"/>
         </scene>
         <!--Bookmarks-->
-        <scene sceneID="yn1-cy-CIp">
+        <scene sceneID="DtG-DX-OdT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8cw-K3-QG4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark.fill" catalog="system" id="kXH-dJ-va8"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ksf-rx-TE5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark.fill" catalog="system" id="gUi-pG-Xv7"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1eW-lH-PsO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n4C-my-QIC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="x1y-hQ-c4h" kind="relationship" relationship="rootViewController" id="apv-Ox-fJX"/>
+                        <segue destination="THE-7I-Ads" kind="relationship" relationship="rootViewController" id="lCp-Bf-bRy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P6z-KC-wdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZd-kh-rsz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="534"/>
+            <point key="canvasLocation" x="1014" y="534"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Primary"/>
