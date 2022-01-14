@@ -11,33 +11,55 @@ class RecipeTableViewController: UITableViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var selectedCategory:Category = Category()
+    var selectedCategory:Category?
     var recipeList:[Meal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         
-        selectedCategory = appDelegate.selectedCategory!
-        title = selectedCategory.strCategory
+        selectedCategory = appDelegate.selectedCategory
         
-        MealAPICaller.shared.getCategoryMeals(category: selectedCategory.strCategory!, completion: { [weak self] result in
-            switch result {
-            case .success(let meals):
-                self?.recipeList = meals
-                
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+        if selectedCategory == nil {
+            title = "Latest"
+            
+            MealAPICaller.shared.getLatestMeals { [weak self] result in
+                switch result {
+                case .success(let meals):
+                    self?.recipeList = meals
+                    
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print(error)
                 }
-                
-            case .failure(let error):
-                print(error)
             }
-        })
+        }
+        
+        else {
+            title = selectedCategory!.strCategory
+            
+            MealAPICaller.shared.getCategoryMeals(category: selectedCategory!.strCategory!, completion: { [weak self] result in
+                switch result {
+                case .success(let meals):
+                    self?.recipeList = meals
+                    
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            })
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.selectedCategory = nil
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

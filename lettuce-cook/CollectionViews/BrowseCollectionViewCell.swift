@@ -8,7 +8,6 @@
 import UIKit
 
 class BrowseCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var browseRecipeName: UILabel!
     @IBOutlet weak var browseRecipeImage: UIImageView!
 }
