@@ -207,7 +207,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wX9-pA-p4p">
                                             <rect key="frame" x="20" y="10" width="374" height="140"/>
-                                            <color key="backgroundColor" name="Primary"/>
+                                            <color key="backgroundColor" name="Light"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV2-hi-Nzl">
                                             <rect key="frame" x="40" y="65.5" width="334" height="29"/>
@@ -306,7 +306,7 @@
         <!--Bookmarks-->
         <scene sceneID="4Ae-sZ-OSg">
             <objects>
-                <tableViewController id="THE-7I-Ads" customClass="BookmarksTableViewController" customModule="lettuce_cook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Bookmarks" id="THE-7I-Ads" customClass="BookmarksTableViewController" customModule="lettuce_cook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yiQ-As-YYm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -468,63 +468,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGd-4B-QCD">
-                                <rect key="frame" x="20" y="140" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAl-MR-6CB">
-                                <rect key="frame" x="104" y="190.5" width="75" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
-                                <connections>
-                                    <action selector="profileSignUpButton:" destination="sr7-eS-fS8" eventType="touchUpInside" id="wxa-7U-6p7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jz-oa-zFf">
-                                <rect key="frame" x="20" y="190.5" width="64" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Log In"/>
-                                <connections>
-                                    <action selector="profileLoginButton:" destination="sr7-eS-fS8" eventType="touchUpInside" id="wGW-h1-Leg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mO-AM-ltz">
-                                <rect key="frame" x="172" y="710.5" width="70" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutButton:" destination="sr7-eS-fS8" eventType="touchUpInside" id="99F-id-U3h"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QEV-eE-mWb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" reuseIdentifier="profileLogoutCell" rowHeight="140" id="OYJ-gw-nds" customClass="ProfileLogoutTableViewCell" customModule="lettuce_cook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OYJ-gw-nds" id="9w4-kh-4FV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ay-hp-4OU">
+                                                    <rect key="frame" x="20" y="21" width="374" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBc-rP-zHB">
+                                                    <rect key="frame" x="20" y="61.5" width="100" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="uBD-IW-rmP"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="Log In" cornerStyle="capsule"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeE-qJ-FU9">
+                                                    <rect key="frame" x="135" y="61.5" width="100" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="oRW-pe-NpA"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" title="Sign Up" cornerStyle="capsule"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EBc-rP-zHB" firstAttribute="top" secondItem="1ay-hp-4OU" secondAttribute="bottom" constant="20" id="12i-Q9-Qlu"/>
+                                                <constraint firstItem="UeE-qJ-FU9" firstAttribute="leading" secondItem="EBc-rP-zHB" secondAttribute="trailing" constant="15" id="DoN-r1-zef"/>
+                                                <constraint firstItem="UeE-qJ-FU9" firstAttribute="top" secondItem="1ay-hp-4OU" secondAttribute="bottom" constant="20" id="FP3-Wa-waG"/>
+                                                <constraint firstItem="1ay-hp-4OU" firstAttribute="leading" secondItem="9w4-kh-4FV" secondAttribute="leadingMargin" id="d9u-hk-EIg"/>
+                                                <constraint firstItem="EBc-rP-zHB" firstAttribute="leading" secondItem="9w4-kh-4FV" secondAttribute="leadingMargin" id="jrt-I4-Ktp"/>
+                                                <constraint firstItem="1ay-hp-4OU" firstAttribute="trailing" secondItem="9w4-kh-4FV" secondAttribute="trailingMargin" id="vUa-wY-WSj"/>
+                                                <constraint firstItem="1ay-hp-4OU" firstAttribute="top" secondItem="9w4-kh-4FV" secondAttribute="topMargin" constant="10" id="yXI-do-wzc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileLoginButton" destination="EBc-rP-zHB" id="yBi-Yf-QuB"/>
+                                            <outlet property="profileLogoutDescription" destination="1ay-hp-4OU" id="9po-Oa-xM4"/>
+                                            <outlet property="profileSignUpButton" destination="UeE-qJ-FU9" id="OxJ-Lq-cRK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileLoginCell" id="JML-8d-bp0" customClass="ProfileLoginTableViewCell" customModule="lettuce_cook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="184.5" width="414" height="51.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JML-8d-bp0" id="FCI-Yx-zFB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xW0-tb-c8V">
+                                                    <rect key="frame" x="10" y="10" width="394" height="31.5"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xW0-tb-c8V" firstAttribute="leading" secondItem="FCI-Yx-zFB" secondAttribute="leading" constant="10" id="Iux-4M-k8r"/>
+                                                <constraint firstAttribute="trailing" secondItem="xW0-tb-c8V" secondAttribute="trailing" constant="10" id="Wpw-x5-YdO"/>
+                                                <constraint firstItem="xW0-tb-c8V" firstAttribute="top" secondItem="FCI-Yx-zFB" secondAttribute="top" constant="10" id="Xil-kH-1xM"/>
+                                                <constraint firstAttribute="bottom" secondItem="xW0-tb-c8V" secondAttribute="bottom" constant="10" id="tTe-Hn-Rab"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileOptionButton" destination="xW0-tb-c8V" id="kNU-X6-2db"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JTX-rJ-BEf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WAl-MR-6CB" firstAttribute="leading" secondItem="2Jz-oa-zFf" secondAttribute="trailing" constant="20" id="3UI-kP-IzL"/>
-                            <constraint firstItem="2Jz-oa-zFf" firstAttribute="top" secondItem="xGd-4B-QCD" secondAttribute="bottom" constant="30" id="8Wy-Uu-FWc"/>
-                            <constraint firstItem="xGd-4B-QCD" firstAttribute="top" secondItem="JTX-rJ-BEf" secondAttribute="top" id="APe-rL-7sO"/>
-                            <constraint firstAttribute="trailing" secondItem="xGd-4B-QCD" secondAttribute="trailing" constant="20" id="G5H-IN-QKg"/>
-                            <constraint firstItem="JTX-rJ-BEf" firstAttribute="trailing" secondItem="5mO-AM-ltz" secondAttribute="trailing" constant="172" id="JXp-Lb-qns"/>
-                            <constraint firstItem="WAl-MR-6CB" firstAttribute="top" secondItem="xGd-4B-QCD" secondAttribute="bottom" constant="30" id="Zi8-JI-EzV"/>
-                            <constraint firstItem="xGd-4B-QCD" firstAttribute="leading" secondItem="JTX-rJ-BEf" secondAttribute="leading" constant="20" id="enb-rp-Mk1"/>
-                            <constraint firstItem="2Jz-oa-zFf" firstAttribute="leading" secondItem="JTX-rJ-BEf" secondAttribute="leading" constant="20" id="h54-Be-lAE"/>
-                            <constraint firstItem="5mO-AM-ltz" firstAttribute="leading" secondItem="JTX-rJ-BEf" secondAttribute="leading" constant="172" id="kB0-Zu-eUn"/>
-                            <constraint firstItem="5mO-AM-ltz" firstAttribute="top" secondItem="WAl-MR-6CB" secondAttribute="bottom" constant="489" id="qZz-bK-xhX"/>
+                            <constraint firstItem="QEV-eE-mWb" firstAttribute="trailing" secondItem="JTX-rJ-BEf" secondAttribute="trailing" id="82k-xk-x5v"/>
+                            <constraint firstItem="QEV-eE-mWb" firstAttribute="top" secondItem="JTX-rJ-BEf" secondAttribute="top" id="BdA-OR-SNZ"/>
+                            <constraint firstItem="QEV-eE-mWb" firstAttribute="leading" secondItem="JTX-rJ-BEf" secondAttribute="leading" id="KYe-zb-gvM"/>
+                            <constraint firstAttribute="bottom" secondItem="QEV-eE-mWb" secondAttribute="bottom" id="jOb-Ly-kBt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="eiF-5j-XyR">
                         <barButtonItem key="backBarButtonItem" title="Back" id="znA-Zw-iyM"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="logoutButtonUI" destination="5mO-AM-ltz" id="GYP-R2-b9I"/>
-                        <outlet property="profileDescriptionLabel" destination="xGd-4B-QCD" id="rEJ-4E-3mx"/>
+                        <outlet property="profileOptionsTableView" destination="QEV-eE-mWb" id="BIY-SI-u7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsf-CA-EOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1936" y="1567"/>
+            <point key="canvasLocation" x="1934.7826086956522" y="1566.9642857142856"/>
         </scene>
         <!--Sign up-->
         <scene sceneID="cfm-WY-yzy">
@@ -826,6 +864,9 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="Light">
+            <color red="0.063000001013278961" green="0.72500002384185791" blue="0.50599998235702515" alpha="0.24726296768707484" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.063000001013278961" green="0.72500002384185791" blue="0.50599998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

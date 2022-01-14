@@ -7,68 +7,86 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var profileDescriptionLabel: UILabel!
     
-    @IBOutlet weak var logoutButtonUI: UIButton!
+    var user = FirebaseAuth.Auth.auth().currentUser
+    let profileOptions = ["My Bookmarks","Logout"]
     
-    @IBAction func logoutButton(_ sender: Any) {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-            logoutButtonUI.isEnabled = false
-            displayDefaultDescription()
-        }
-        catch {
-            // An error occurred, cannot sign out.
-        }
-    }
-    
-    @IBAction func profileLoginButton(_ sender: Any) {
-        transitionToLogin()
-    }
-    
-    @IBAction func profileSignUpButton(_ sender: Any) {
-        transitionToSignUp()
-    }
+    @IBOutlet weak var profileOptionsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        profileOptionsTableView.delegate = self
+        profileOptionsTableView.dataSource = self
+    }
+}
+
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if user == nil {
+            return 1
+        }
+        return profileOptions.count
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let user = FirebaseAuth.Auth.auth().currentUser
-        
-        if user != nil {
-            logoutButtonUI.isEnabled = true
-            displayUsername(userID: user!.uid)
+        if user == nil {
+            let cell = profileOptionsTableView.dequeueReusableCell(withIdentifier: Constants.Cell.profileLogoutCell, for: indexPath) as! ProfileLogoutTableViewCell
+            cell.profileLogoutDescription.text = "Sign Up or Log In to store your bookmarks and shopping list."
+            cell.profileSignUpButton.addTarget(self, action: #selector(signUpButtonTap), for: .touchUpInside)
+            cell.profileLoginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
+            profileOptionsTableView.rowHeight = 140
+            return cell
         }
         
         else {
-            logoutButtonUI.isEnabled = false
-            displayDefaultDescription()
+            let cell = profileOptionsTableView.dequeueReusableCell(withIdentifier: Constants.Cell.profileLoginCell, for: indexPath) as! ProfileLoginTableViewCell
+            
+            cell.profileOptionButton.setTitle(profileOptions[indexPath.row], for: .normal)
+            
+            switch (indexPath.row) {
+                case 0:
+                    cell.profileOptionButton.addTarget(self, action: #selector(bookmarkButtonTap), for: .touchUpInside)
+                    break
+                case 1:
+                    cell.profileOptionButton.addTarget(self, action: #selector(logoutButtonTap), for: .touchUpInside)
+                    break
+                default:
+                    break
+            }
+            
+            return cell
         }
     }
     
-    func displayUsername(userID:String) {
-        let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
-        ref.child("users/\(userID)/username").getData(completion: { error, snapshot in
-            
-            if error != nil {
-                return
-            }
-            
-            let username = snapshot.value as? String ?? "Unknown"
-            self.profileDescriptionLabel.text = "Welcome Back \(username)!"
-        })
+    @objc func signUpButtonTap(sender:UIButton) {
+        transitionToSignUp()
     }
     
-    func displayDefaultDescription() {
-        profileDescriptionLabel.text = "Sign Up or Log In to store your bookmarks and shopping list."
+    @objc func loginButtonTap(sender:UIButton) {
+        transitionToLogin()
+    }
+    
+    @objc func bookmarkButtonTap(sender:UIButton) {
+        transitionToBookmark()
+    }
+    
+    @objc func logoutButtonTap(sender:UIButton) {
+        logout()
+    }
+    
+    func logout() {
+        do {
+            try FirebaseAuth.Auth.auth().signOut()
+        } catch {}
+        user = nil
+        profileOptionsTableView.reloadData()
+    }
+    
+    func transitionToBookmark() {
+        self.tabBarController?.selectedIndex = 1
     }
     
     func transitionToSignUp() {

@@ -13,6 +13,7 @@ struct Constants {
         static let recipeDetails = "RecipeDetails"
         static let login = "Login"
         static let signUp = "SignUp"
+        static let bookmarks = "Bookmarks"
     }
     
     struct Cell {
@@ -21,6 +22,8 @@ struct Constants {
         static let bookmarkCell = "bookmarkCell"
         static let recipeCell = "recipeCell"
         static let categoryCell = "categoryCell"
+        static let profileLogoutCell = "profileLogoutCell"
+        static let profileLoginCell = "profileLoginCell"
     }
     
     struct Firebase {

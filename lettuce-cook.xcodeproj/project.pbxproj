@@ -23,6 +23,8 @@
 		845E697A2791AF4100BF087F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E69792791AF4100BF087F /* Category.swift */; };
 		845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E697B2791B05700BF087F /* CategoriesAPIResponse.swift */; };
 		845E697E2791D14F00BF087F /* LatestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E697D2791D14F00BF087F /* LatestCollectionViewCell.swift */; };
+		845E69802791ED1A00BF087F /* ProfileLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E697F2791ED1A00BF087F /* ProfileLoginTableViewCell.swift */; };
+		845E69822791EF0800BF087F /* ProfileLogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E69812791EF0800BF087F /* ProfileLogoutTableViewCell.swift */; };
 		84B1117E278E3E0400B71776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117D278E3E0400B71776 /* AppDelegate.swift */; };
 		84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1117F278E3E0400B71776 /* SceneDelegate.swift */; };
 		84B11182278E3E0400B71776 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B11181278E3E0400B71776 /* HomeViewController.swift */; };
@@ -54,6 +56,8 @@
 		845E69792791AF4100BF087F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		845E697B2791B05700BF087F /* CategoriesAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPIResponse.swift; sourceTree = "<group>"; };
 		845E697D2791D14F00BF087F /* LatestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionViewCell.swift; sourceTree = "<group>"; };
+		845E697F2791ED1A00BF087F /* ProfileLoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoginTableViewCell.swift; sourceTree = "<group>"; };
+		845E69812791EF0800BF087F /* ProfileLogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutTableViewCell.swift; sourceTree = "<group>"; };
 		849882CA57AEE83748C3D932 /* Pods-lettuce-cook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.release.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.release.xcconfig"; sourceTree = "<group>"; };
 		84B1117A278E3E0400B71776 /* lettuce-cook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lettuce-cook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1117D278E3E0400B71776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				845E696F27916AD800BF087F /* BookmarkTableViewCell.swift */,
 				845E69712791908400BF087F /* RecipeTableViewCell.swift */,
 				845E697727919C3A00BF087F /* CategoriesTableViewCell.swift */,
+				845E697F2791ED1A00BF087F /* ProfileLoginTableViewCell.swift */,
+				845E69812791EF0800BF087F /* ProfileLogoutTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				845E697827919C3A00BF087F /* CategoriesTableViewCell.swift in Sources */,
 				845E6974279190A900BF087F /* RecipeTableViewController.swift in Sources */,
 				845E697E2791D14F00BF087F /* LatestCollectionViewCell.swift in Sources */,
+				845E69822791EF0800BF087F /* ProfileLogoutTableViewCell.swift in Sources */,
 				8437A7F4278E6013002416F1 /* MealAPICaller.swift in Sources */,
 				845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */,
 				845E697627919C2400BF087F /* CategoriesTableViewController.swift in Sources */,
@@ -357,6 +364,7 @@
 				84B11188278E3E0400B71776 /* lettuce_cook.xcdatamodeld in Sources */,
 				845E69722791908400BF087F /* RecipeTableViewCell.swift in Sources */,
 				84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */,
+				845E69802791ED1A00BF087F /* ProfileLoginTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
