@@ -126,7 +126,9 @@ class RecipeDetailsViewController: UIViewController {
 }
 
 extension RecipeDetailsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appDelegate.viewIngredient = viewMeal.ingredientList[indexPath.row]
+    }
 }
 
 extension RecipeDetailsViewController: UITableViewDataSource {

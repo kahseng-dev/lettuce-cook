@@ -13,6 +13,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var viewMeal:Meal = Meal()
+    var viewIngredient:Ingredient = Ingredient()
     var selectedCategory:Category?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
