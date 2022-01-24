@@ -55,11 +55,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             
                             let imageTap = UITapGestureRecognizer(target: self, action: #selector(self?.recipeImageTap))
                             
-                            self?.featuredMeal = Meal(idMeal: meals[0].idMeal,
-                                                strMeal: meals[0].strMeal,
-                                                strCategory: meals[0].strCategory,
-                                                strArea: meals[0].strArea,
-                                                strMealThumb: meals[0].strMealThumb)
+                            self?.featuredMeal = meals[0]
                             
                             self?.featuredMealImage.isUserInteractionEnabled = true
                             self?.featuredMealImage.addGestureRecognizer(imageTap)
@@ -76,13 +72,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             switch result {
             case .success(let meals):
                 for meal in meals {
-                    let newMeal = Meal(idMeal: meal.idMeal,
-                                       strMeal: meal.strMeal,
-                                       strCategory: meal.strCategory,
-                                       strArea: meal.strArea,
-                                       strMealThumb: meal.strMealThumb
-                    )
-                    self?.browseMealList.append(newMeal)
+                    self?.browseMealList.append(meal)
                 }
                 
                 DispatchQueue.main.async {
@@ -98,13 +88,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             switch result {
             case .success(let meals):
                 for meal in meals {
-                    let newMeal = Meal(idMeal: meal.idMeal,
-                                       strMeal: meal.strMeal,
-                                       strCategory: meal.strCategory,
-                                       strArea: meal.strArea,
-                                       strMealThumb: meal.strMealThumb
-                    )
-                    self?.latestMealList.append(newMeal)
+                    self?.latestMealList.append(meal)
                 }
                 
                 DispatchQueue.main.async {

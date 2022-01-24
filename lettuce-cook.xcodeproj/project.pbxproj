@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		625615EEE292519A93BEBAA0 /* Pods_lettuce_cook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B74DBBC496AF1101B27297 /* Pods_lettuce_cook.framework */; };
+		8423AF88279EB04A003CE435 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423AF87279EB04A003CE435 /* Ingredient.swift */; };
 		8437A7F4278E6013002416F1 /* MealAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437A7F3278E6013002416F1 /* MealAPICaller.swift */; };
 		845E6957278EE10000BF087F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6956278EE10000BF087F /* Meal.swift */; };
 		845E6959278EE1ED00BF087F /* MealAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E6958278EE1ED00BF087F /* MealAPIResponse.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		5AEEB46E8596219B5CC89170 /* Pods-lettuce-cook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.debug.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.debug.xcconfig"; sourceTree = "<group>"; };
+		8423AF87279EB04A003CE435 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		8437A7F3278E6013002416F1 /* MealAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAPICaller.swift; sourceTree = "<group>"; };
 		845E6956278EE10000BF087F /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		845E6958278EE1ED00BF087F /* MealAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealAPIResponse.swift; sourceTree = "<group>"; };
@@ -116,10 +118,11 @@
 		845E6955278EE0F600BF087F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				845E6956278EE10000BF087F /* Meal.swift */,
 				845E6958278EE1ED00BF087F /* MealAPIResponse.swift */,
+				845E6956278EE10000BF087F /* Meal.swift */,
 				845E69792791AF4100BF087F /* Category.swift */,
 				845E697B2791B05700BF087F /* CategoriesAPIResponse.swift */,
+				8423AF87279EB04A003CE435 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				845E6974279190A900BF087F /* RecipeTableViewController.swift in Sources */,
 				845E697E2791D14F00BF087F /* LatestCollectionViewCell.swift in Sources */,
 				845E69822791EF0800BF087F /* ProfileLogoutTableViewCell.swift in Sources */,
+				8423AF88279EB04A003CE435 /* Ingredient.swift in Sources */,
 				8437A7F4278E6013002416F1 /* MealAPICaller.swift in Sources */,
 				845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */,
 				845E697627919C2400BF087F /* CategoriesTableViewController.swift in Sources */,
