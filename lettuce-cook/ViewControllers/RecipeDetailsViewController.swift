@@ -31,6 +31,10 @@ class RecipeDetailsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func recipeInstructionsButton(_ sender: Any) {
+        appDelegate.selectedInstructions = viewMeal.strInstructions
+    }
+    
     @IBAction func recipeBookmarkButton(_ sender: Any) {
         setBookmark()
     }
