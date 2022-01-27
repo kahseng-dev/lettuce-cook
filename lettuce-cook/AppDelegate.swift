@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import Firebase
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -39,6 +39,10 @@ class RecipeDetailsViewController: UIViewController {
         setBookmark()
     }
     
+    @IBAction func recipeReminderButton(_ sender: Any) {
+        transitionToAddReminder()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if self.user == nil {
@@ -127,6 +131,12 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    func transitionToAddReminder() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addReminder) as! AddReminderViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedRecipe = viewMeal
+        present(vc, animated: true)
+    }
 }
 
 extension RecipeDetailsViewController: UITableViewDelegate {
