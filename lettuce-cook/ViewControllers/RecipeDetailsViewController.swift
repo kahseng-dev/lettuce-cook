@@ -12,6 +12,8 @@ import FirebaseDatabase
 class RecipeDetailsViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    // retrieve user
     let user = FirebaseAuth.Auth.auth().currentUser
     
     var viewMeal:Meal = Meal()
@@ -27,30 +29,37 @@ class RecipeDetailsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // if user clicks on close button, dismiss the view
     @IBAction func recipeBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // if user clicks on the play instructions button, set the selected instructions
+    // the app will segue to the play instructions view which useses this to load the instructions
     @IBAction func recipeInstructionsButton(_ sender: Any) {
         appDelegate.selectedInstructions = viewMeal.strInstructions
     }
     
+    // save the recipe to the user's bookmark
     @IBAction func recipeBookmarkButton(_ sender: Any) {
         setBookmark()
     }
     
+    // set a reminder for current recipe
     @IBAction func recipeReminderButton(_ sender: Any) {
         transitionToAddReminder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // if user is not logged in, set the bookmark button as disabled, preventing the user
+        // from saving to no account
         if self.user == nil {
             recipeBookmarkButtonUI.isEnabled = false
         }
         
         viewMeal = appDelegate.viewMeal
-        checkBookmark()
+        checkBookmark() // check if the user has bookmarked this recipe before
     }
     
     override func viewDidLoad() {
@@ -59,6 +68,7 @@ class RecipeDetailsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        // shadow for text
         recipeName.layer.shadowOffset = CGSize(width: 0, height: 1)
         recipeName.layer.shadowOpacity = 0.8
         recipeName.layer.shadowRadius = 2
@@ -76,6 +86,7 @@ class RecipeDetailsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
+                // once the image has been fetched show recipe details
                 self?.recipeName.text = self?.viewMeal.strMeal
                 self?.recipeArea.text = self?.viewMeal.strArea
                 self?.recipeInstructions.text = self?.viewMeal.strInstructions
@@ -85,10 +96,12 @@ class RecipeDetailsViewController: UIViewController {
         }.resume()
     }
     
+    // hide the status bar for more viewing angles for the photo
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    // a function to check if the user login status and set the bookmark button icon
     func checkBookmark() {
         if user != nil {
             let userID = user!.uid
@@ -104,6 +117,7 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    // saving of bookmark to firebase database
     func setBookmark() {
         if user != nil {
             let userID = user!.uid
@@ -131,6 +145,7 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
     
+    // transition to add reminder view
     func transitionToAddReminder() {
         let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addReminder) as! AddReminderViewController
         vc.modalPresentationStyle = .fullScreen
@@ -139,6 +154,7 @@ class RecipeDetailsViewController: UIViewController {
     }
 }
 
+// MARK: for recipe ingredient table view
 extension RecipeDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.viewIngredient = viewMeal.ingredientList[indexPath.row]

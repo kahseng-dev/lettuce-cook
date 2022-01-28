@@ -15,11 +15,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginEmailField: UITextField!
     @IBOutlet weak var loginPasswordField: UITextField!
     
+    // when user clicks on the close button
     @IBAction func loginDismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    // when user clicks on the login button
     @IBAction func loginButton(_ sender: Any) {
+        // check if the email and password field is not empty
         guard let email = loginEmailField.text, !email.isEmpty,
               let password = loginPasswordField.text, !password.isEmpty else {
                   showError(error: "Please fill in every field.")
@@ -48,6 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginErrorLabel.isHidden = true
     }
     
+    // MARK: when user returns on the keyboard, go to next text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.switchBasedNextTextField(textField)
         return true
@@ -67,6 +71,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginErrorLabel.isHidden = false
     }
     
+    // transition back to home
     func transitionToMain() {
         let storyboard = UIStoryboard(name: Constants.Storyboard.main, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.main) as UIViewController

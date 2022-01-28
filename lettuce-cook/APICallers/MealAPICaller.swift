@@ -17,6 +17,7 @@ final class MealAPICaller {
     
     private init() {}
     
+    // retrieve a random meal
     public func getRandomMeal(completion: @escaping (Result<[Meal], Error>) -> Void) {
         
         guard let url = URL(string:"\(Constants.baseURL)/random.php") else {
@@ -41,6 +42,7 @@ final class MealAPICaller {
         }.resume()
     }
     
+    // retrieve the latest meals
     public func getLatestMeals(completion: @escaping (Result<[Meal], Error>) -> Void) {
         guard let url = URL(string:"\(Constants.baseURL)/latest.php") else {
             return
@@ -64,6 +66,8 @@ final class MealAPICaller {
         }.resume()
     }
     
+    
+    // retrieve 10 random meals
     public func get10RandomMeals(completion: @escaping (Result<[Meal], Error>) -> Void) {
         guard let url = URL(string:"\(Constants.baseURL)/randomselection.php") else {
             return
@@ -87,6 +91,7 @@ final class MealAPICaller {
         }.resume()
     }
     
+    // retrieve a meal given its mealid
     public func getMeal(mealID: String, completion: @escaping (Result<Meal, Error>) -> Void) {
         guard let url = URL(string:"\(Constants.baseURL)/lookup.php?i=\(mealID)") else {
             return
@@ -110,6 +115,7 @@ final class MealAPICaller {
         }.resume()
     }
     
+    // retrieve list of categories
     public func getCategoriesList(completion: @escaping (Result<[Category], Error>) -> Void) {
         guard let url = URL(string:"\(Constants.baseURL)/categories.php") else {
             return
@@ -133,6 +139,7 @@ final class MealAPICaller {
         }.resume()
     }
     
+    // retrieve a list of meals given the category
     public func getCategoryMeals(category:String, completion: @escaping (Result<[Meal], Error>) -> Void) {
         guard let url = URL(string:"\(Constants.baseURL)/filter.php?c=\(category)") else {
             return

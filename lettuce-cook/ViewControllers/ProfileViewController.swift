@@ -11,7 +11,7 @@ import FirebaseAuth
 class ProfileViewController: UIViewController {
     
     var user = FirebaseAuth.Auth.auth().currentUser
-    let profileOptions = ["My Bookmarks","Logout"]
+    let profileOptions = ["My Bookmarks", "Logout"] // profile options text
     
     @IBOutlet weak var profileOptionsTableView: UITableView!
     
@@ -32,6 +32,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // if user is not logged in, show sign up or sign in options
         if user == nil {
             let cell = profileOptionsTableView.dequeueReusableCell(withIdentifier: Constants.Cell.profileLogoutCell, for: indexPath) as! ProfileLogoutTableViewCell
             cell.profileLogoutDescription.text = "Sign Up or Log In to store your bookmarks and shopping list."
@@ -41,6 +42,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         
+        // if the user is logged in, show profile options
         else {
             let cell = profileOptionsTableView.dequeueReusableCell(withIdentifier: Constants.Cell.profileLoginCell, for: indexPath) as! ProfileLoginTableViewCell
             

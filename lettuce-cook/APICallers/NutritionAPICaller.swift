@@ -18,6 +18,7 @@ final class NutritionAPICaller {
     
     private init() {}
     
+    // retrieve the nutritional information given the ingredient and measure of the ingredient
     public func getNutritionInfo(ingredient: String, measure: String, completion: @escaping (Result<Nutrition, Error>) -> Void) {
         let query = "\(measure) \(ingredient)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         

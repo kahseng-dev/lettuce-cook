@@ -37,6 +37,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         latestCollectionView.dataSource = self
         latestCollectionView.delegate = self
         
+        // retrieve a random meal to be featured under featured meal section
         MealAPICaller.shared.getRandomMeal { [weak self] result in
             switch result {
             case .success(let meals):
@@ -68,6 +69,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
         
+        // retrieve 10 random meals for browse section
         MealAPICaller.shared.get10RandomMeals { [weak self] result in
             switch result {
             case .success(let meals):
@@ -84,6 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
         
+        // retrieve latest meals for latest section
         MealAPICaller.shared.getLatestMeals { [weak self] result in
             switch result {
             case .success(let meals):
@@ -112,6 +115,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         present(vc, animated: true)
     }
     
+    // MARK: collection view or sliders for browse and latest collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == browseCollectionView {
             return browseMealList.count

@@ -14,6 +14,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
     }
     
+    // custom tabbar controller to show login requirement for certain features of the app
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
         let user = FirebaseAuth.Auth.auth().currentUser
@@ -30,6 +31,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         return true
     }
     
+    // show action sheet function that contains create account or login options
     func showActionSheet() {
         let alert = UIAlertController(title: "Create an account to continue", message: "Create an account or login to view your personal information", preferredStyle: .actionSheet)
         

@@ -15,10 +15,12 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let reminderDAL:ReminderCoreDataAccessLayer = ReminderCoreDataAccessLayer()
     
+    // upon clicking add reminder button, navigate to add reminder view
     @IBAction func addReminderButton(_ sender: Any) {
         transitionToAddReminder()
     }
     
+    // upon clicking delete reminder button, change table view into edit mode
     @IBAction func deleteReminderButton(_ sender: Any) {
         tableView.setEditing (
             !tableView.isEditing,
@@ -29,6 +31,7 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // initalise the reminder table with core data reminders
         reminders = reminderDAL.RetreiveAllReminders()
         
         self.userNotificationCenter.delegate = self
@@ -57,13 +60,16 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
         
         let reminder = reminders[indexPath.row]
         
+        // set reminder title as textlabel
         cell.textLabel?.text = reminder.title
         
+        // set reminder date as detailtextlabel
         let dateFormat = DateFormatter()
         dateFormat.dateStyle = .long
         dateFormat.timeStyle = .short
         cell.detailTextLabel?.text = dateFormat.string(from: reminder.date)
         
+        // if there is a meal id add a detail button to accessory
         if reminder.mealID != nil {
             cell.accessoryType = UITableViewCell.AccessoryType.detailButton
         }
@@ -72,6 +78,7 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // when delete, update table view and delete reminder from core data
         if editingStyle == UITableViewCell.EditingStyle.delete {
             reminderDAL.DeleteReminder(reminder: reminders[indexPath.row])
             reminders.remove(at: indexPath.row)
@@ -80,6 +87,7 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
         }
     }
     
+    // if there is a meal id set for the reminder, upon clicking the reminder record, view the recipe details
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if reminders[indexPath.row].mealID != nil {
             MealAPICaller.shared.getMeal(mealID: reminders[indexPath.row].mealID!, completion: { [weak self] result in
@@ -88,6 +96,7 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
                     self?.appDelegate.viewMeal = meal
                             
                     DispatchQueue.main.async {
+                        // once retrieved, transition to recipe details
                         self?.transitionToRecipeDetails()
                     }
                     
@@ -110,6 +119,7 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
         present(vc, animated: true)
     }
     
+    // MARK: set notifiaction to display when the app is in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
