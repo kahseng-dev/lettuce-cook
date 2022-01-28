@@ -28,6 +28,8 @@ struct Constants {
         static let recipeIngredientCell = "recipeIngredientCell"
         static let ingredientInfoCell = "ingredientInfoCell"
         static let reminderCell = "reminderCell"
+        static let shoppingListCell = "shoppingListCell"
+        static let shoppingIngredientCell = "shoppingIngredientCell"
     }
     
     struct Firebase {

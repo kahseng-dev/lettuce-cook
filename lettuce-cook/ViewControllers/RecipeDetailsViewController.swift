@@ -43,6 +43,10 @@ class RecipeDetailsViewController: UIViewController {
         transitionToAddReminder()
     }
     
+    @IBAction func recipeShoppingListButton(_ sender: Any) {
+        saveToShoppingList()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if self.user == nil {
@@ -128,6 +132,54 @@ class RecipeDetailsViewController: UIViewController {
                 self.recipeBookmarkButtonUI.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
                 return
             })
+        }
+    }
+    
+    func saveToShoppingList() {
+        if user != nil {
+            let userID = user!.uid
+            let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
+            
+            ref.child("users/\(userID)/shoppingList").observeSingleEvent(of: .value, with: { [self] snapshot in
+                var shoppingLists = snapshot.value as? [Dictionary<String, Any>]
+                
+                if shoppingLists == nil {
+                    shoppingLists = []
+                }
+                
+                let shoppingList = ["mealID": viewMeal.idMeal!,
+                                    "title": viewMeal.strMeal!]
+                
+                shoppingLists?.append(shoppingList)
+                
+                ref.child("users/\(userID)/shoppingList").setValue(shoppingLists)
+                
+                var count = 0
+                for recipeIngredient in viewMeal.ingredientList {
+                    let ingredient = ["strIngredient" : recipeIngredient.strIngredient,
+                                     "strMeasure": recipeIngredient.strMeasure]
+                
+                    ref.child("users/\(userID)/shoppingList/\(shoppingLists!.count - 1)/ingredients/\(count)").setValue(ingredient)
+                    
+                    count += 1
+                }
+                
+                showToast(controller: self, message: "Recipe has been to your Shopping List!", seconds: 2)
+                return
+            })
+        }
+    }
+    
+    func showToast(controller: UIViewController, message: String, seconds: Double) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = UIColor.white
+        alert.view.alpha = 0.6
+        alert.view.layer.cornerRadius = 15
+        
+        controller.present(alert, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
         }
     }
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EA043AF27A3E03A009A2D0A /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA043AE27A3E03A009A2D0A /* ShoppingListTableViewController.swift */; };
+		0EA043B127A3E056009A2D0A /* ShoppingIngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA043B027A3E056009A2D0A /* ShoppingIngredientTableViewController.swift */; };
+		0EA043B327A3E1B3009A2D0A /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA043B227A3E1B3009A2D0A /* ShoppingList.swift */; };
 		4C6EE50F27A29C9C00275C86 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE50E27A29C9C00275C86 /* AddReminderViewController.swift */; };
 		4C6EE51127A29D0C00275C86 /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */; };
 		4C6EE51327A29F1D00275C86 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51227A29F1D00275C86 /* Reminder.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EA043AE27A3E03A009A2D0A /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
+		0EA043B027A3E056009A2D0A /* ShoppingIngredientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingIngredientTableViewController.swift; sourceTree = "<group>"; };
+		0EA043B227A3E1B3009A2D0A /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		4C6EE50E27A29C9C00275C86 /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		4C6EE51227A29F1D00275C86 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				8423AF93279EDF5D003CE435 /* Nutrition.swift */,
 				8423AF95279EDFD1003CE435 /* NutritionAPIResponse.swift */,
 				4C6EE51227A29F1D00275C86 /* Reminder.swift */,
+				0EA043B227A3E1B3009A2D0A /* ShoppingList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +200,8 @@
 				845E6973279190A900BF087F /* RecipeTableViewController.swift */,
 				845E697527919C2400BF087F /* CategoriesTableViewController.swift */,
 				4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */,
+				0EA043AE27A3E03A009A2D0A /* ShoppingListTableViewController.swift */,
+				0EA043B027A3E056009A2D0A /* ShoppingIngredientTableViewController.swift */,
 			);
 			path = TableViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				8423AF88279EB04A003CE435 /* Ingredient.swift in Sources */,
 				8437A7F4278E6013002416F1 /* MealAPICaller.swift in Sources */,
 				845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */,
+				0EA043B327A3E1B3009A2D0A /* ShoppingList.swift in Sources */,
 				845E697627919C2400BF087F /* CategoriesTableViewController.swift in Sources */,
 				845E695B278F0C8A00BF087F /* RecipeDetailsViewController.swift in Sources */,
 				84B11182278E3E0400B71776 /* HomeViewController.swift in Sources */,
@@ -411,8 +421,10 @@
 				84B11188278E3E0400B71776 /* lettuce_cook.xcdatamodeld in Sources */,
 				845E69722791908400BF087F /* RecipeTableViewCell.swift in Sources */,
 				84B11180278E3E0400B71776 /* SceneDelegate.swift in Sources */,
+				0EA043B127A3E056009A2D0A /* ShoppingIngredientTableViewController.swift in Sources */,
 				845E69802791ED1A00BF087F /* ProfileLoginTableViewCell.swift in Sources */,
 				4C6EE51127A29D0C00275C86 /* ReminderTableViewController.swift in Sources */,
+				0EA043AF27A3E03A009A2D0A /* ShoppingListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

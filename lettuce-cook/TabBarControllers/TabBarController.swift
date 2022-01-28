@@ -25,6 +25,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
                 showActionSheet()
                 return false
             }
+            
+            if selectedIndex == 2 { // Shopping List Bar Item
+                showActionSheet()
+                return false
+            }
         }
         
         return true
