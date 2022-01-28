@@ -37,17 +37,20 @@ class ShoppingListTableViewController:UITableViewController {
                         let NSingredients = array["ingredients"] as? NSArray
                         var ingredientList:[Ingredient] = []
                         
-                        for NSElement in NSingredients! {
+                        if NSingredients != nil {
+                            for NSElement in NSingredients! {
+                                
+                                let ingredientObject = NSElement as! AnyObject
+                                
+                                let ingredient = Ingredient(strIngredient: ingredientObject["strIngredient"] as? String,
+                                                            strMeasure: ingredientObject["strMeasure"] as? String)
+                                ingredientList.append(ingredient)
+                            }
                             
-                            let ingredientObject = NSElement as! AnyObject
-                            
-                            let ingredient = Ingredient(strIngredient: ingredientObject["strIngredient"] as? String,
-                                                        strMeasure: ingredientObject["strMeasure"] as? String)
-                            ingredientList.append(ingredient)
+                            shoppingList.ingredients = ingredientList
+                            shoppingLists.append(shoppingList)
                         }
-                        
-                        shoppingList.ingredients = ingredientList
-                        shoppingLists.append(shoppingList)
+
                     }
                 }
             }
