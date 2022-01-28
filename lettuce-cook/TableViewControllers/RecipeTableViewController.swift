@@ -107,8 +107,30 @@ class RecipeTableViewController: UITableViewController {
     
     // transcation to recipe details once, the user has select a recipe from the list
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        appDelegate.viewMeal = recipeList[indexPath.row]
-        transitionToRecipeDetails()
+        
+        // due to the meal api category db recipes not having the details, we will have to fetch the details
+        // after the user has selected the recipe from the category table view
+        if selectedCategory != nil {
+            MealAPICaller.shared.getMeal(mealID: recipeList[indexPath.row].idMeal!, completion: { [weak self] result in
+                switch result {
+                case .success(let meal):
+                    self?.appDelegate.viewMeal = meal
+                    
+                    DispatchQueue.main.async {
+                        // once retrieved, transition to recipe details
+                        self?.transitionToRecipeDetails()
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            })
+        }
+        
+        else {
+            appDelegate.viewMeal = recipeList[indexPath.row]
+            transitionToRecipeDetails()
+        }
     }
     
     // MARK: transition to recipe details view controller
