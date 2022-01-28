@@ -18,11 +18,13 @@ class CategoriesTableViewController: UITableViewController {
         
         tableView.delegate = self
         
+        // retrieve a list of categories from the API
         MealAPICaller.shared.getCategoriesList(completion: { [weak self] result in
             switch result {
             case .success(let categories):
                 self?.categoriesList = categories
                 
+                // reload the table view once the data has been retrieved
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -46,12 +48,14 @@ class CategoriesTableViewController: UITableViewController {
         
         let category = categoriesList[indexPath.row]
         
+        // retrieve the image of the category
         let imageURL = URL(string: category.strCategoryThumb!) // fetch image
         URLSession.shared.dataTask(with: imageURL!) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
             
+            // once the image has been retrieved, show the details of the category
             DispatchQueue.main.async {
                 cell.categoryLabel.text = category.strCategory
                 cell.categoryImage.image = UIImage(data: data)

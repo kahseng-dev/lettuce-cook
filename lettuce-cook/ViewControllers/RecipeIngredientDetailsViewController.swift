@@ -14,6 +14,7 @@ class RecipeIngredientDetailsViewController: UIViewController {
     var viewIngredient = Ingredient()
     var nutritionInfo:[[String: Any]] = []
     
+    // if user clicks on close button, dismiss the view
     @IBAction func ingredientCloseButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -40,6 +41,7 @@ class RecipeIngredientDetailsViewController: UIViewController {
         ingredientName.text = viewIngredient.strIngredient
         ingredientMeasure.text = viewIngredient.strMeasure
         
+        // retrieve the nutritional information for given the ingredient and its measure
         NutritionAPICaller.shared.getNutritionInfo(ingredient: viewIngredient.strIngredient ?? "",
                                                    measure: viewIngredient.strMeasure ?? "",
                                                    completion: { [weak self] result in
@@ -53,6 +55,7 @@ class RecipeIngredientDetailsViewController: UIViewController {
                 }
                 
                 DispatchQueue.main.async {
+                    // reload the table view once the data has been retrieved
                     self?.tableView.reloadData()
                 }
                 
@@ -64,6 +67,7 @@ class RecipeIngredientDetailsViewController: UIViewController {
     }
 }
 
+// MARK: for showing the nutritional information for the given ingredient
 extension RecipeIngredientDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 }

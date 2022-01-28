@@ -56,6 +56,7 @@
 		0EA043AE27A3E03A009A2D0A /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		0EA043B027A3E056009A2D0A /* ShoppingIngredientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingIngredientTableViewController.swift; sourceTree = "<group>"; };
 		0EA043B227A3E1B3009A2D0A /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		4C5F56B927A4195C00FB5B10 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4C6EE50E27A29C9C00275C86 /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		4C6EE51227A29F1D00275C86 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -209,6 +210,7 @@
 		84B11171278E3E0400B71776 = {
 			isa = PBXGroup;
 			children = (
+				4C5F56B927A4195C00FB5B10 /* README.md */,
 				84B1117C278E3E0400B71776 /* lettuce-cook */,
 				84B1117B278E3E0400B71776 /* Products */,
 				2A50B28E6110A84C3955ED12 /* Pods */,
