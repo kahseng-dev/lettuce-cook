@@ -11,7 +11,7 @@ import FirebaseAuth
 class ProfileViewController: UIViewController {
     
     var user = FirebaseAuth.Auth.auth().currentUser
-    let profileOptions = ["My Bookmarks", "Logout"] // profile options text
+    let profileOptions = ["My Bookmarks", "My Shopping List", "Logout"] // profile options text
     
     @IBOutlet weak var profileOptionsTableView: UITableView!
     
@@ -53,6 +53,9 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                     cell.profileOptionButton.addTarget(self, action: #selector(bookmarkButtonTap), for: .touchUpInside)
                     break
                 case 1:
+                    cell.profileOptionButton.addTarget(self, action: #selector(shoppingListButtonTap), for: .touchUpInside)
+                    break
+                case 2:
                     cell.profileOptionButton.addTarget(self, action: #selector(logoutButtonTap), for: .touchUpInside)
                     break
                 default:
@@ -75,6 +78,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         transitionToBookmark()
     }
     
+    @objc func shoppingListButtonTap(sender:UIButton) {
+        transitionToShoppingList()
+    }
+    
     @objc func logoutButtonTap(sender:UIButton) {
         logout()
     }
@@ -89,6 +96,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func transitionToBookmark() {
         self.tabBarController?.selectedIndex = 1
+    }
+    
+    func transitionToShoppingList() {
+        self.tabBarController?.selectedIndex = 2
     }
     
     func transitionToSignUp() {
