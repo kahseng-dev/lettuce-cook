@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5F56B827A4195000FB5B10 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C5F56B727A4195000FB5B10 /* README.md */; };
 		4C6EE50F27A29C9C00275C86 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE50E27A29C9C00275C86 /* AddReminderViewController.swift */; };
 		4C6EE51127A29D0C00275C86 /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */; };
 		4C6EE51327A29F1D00275C86 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51227A29F1D00275C86 /* Reminder.swift */; };
@@ -50,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C5F56B727A4195000FB5B10 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		4C5F56B927A4195C00FB5B10 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4C6EE50E27A29C9C00275C86 /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		4C6EE51227A29F1D00275C86 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 				845E6973279190A900BF087F /* RecipeTableViewController.swift */,
 				845E697527919C2400BF087F /* CategoriesTableViewController.swift */,
 				4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */,
+				4C5F56B727A4195000FB5B10 /* README.md */,
 			);
 			path = TableViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +204,7 @@
 		84B11171278E3E0400B71776 = {
 			isa = PBXGroup;
 			children = (
+				4C5F56B927A4195C00FB5B10 /* README.md */,
 				84B1117C278E3E0400B71776 /* lettuce-cook */,
 				84B1117B278E3E0400B71776 /* Products */,
 				2A50B28E6110A84C3955ED12 /* Pods */,
@@ -324,6 +329,7 @@
 			files = (
 				84B1118D278E3E0700B71776 /* LaunchScreen.storyboard in Resources */,
 				84B11195278E40B000B71776 /* GoogleService-Info.plist in Resources */,
+				4C5F56B827A4195000FB5B10 /* README.md in Resources */,
 				84B1118A278E3E0700B71776 /* Assets.xcassets in Resources */,
 				84B11185278E3E0400B71776 /* Main.storyboard in Resources */,
 			);

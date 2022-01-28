@@ -18,16 +18,25 @@ class RecipeTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.delegate = self
         
+        // MARK: this table view class is used for displaying a list of recipes
+        
+        // if the user has view this list of recipes from the category table view
+        // then set the selected category
         selectedCategory = appDelegate.selectedCategory
         
+        // if it was from the latest collection view
         if selectedCategory == nil {
+            
+            // then set the title as latest
             title = "Latest"
             
+            // call the function get to get latest meals
             MealAPICaller.shared.getLatestMeals { [weak self] result in
                 switch result {
                 case .success(let meals):
                     self?.recipeList = meals
                     
+                    // reload the tableview once the list has been retrieved
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
@@ -38,6 +47,7 @@ class RecipeTableViewController: UITableViewController {
             }
         }
         
+        // otherwise retrieve the list of recipes by filtering by category
         else {
             title = selectedCategory!.strCategory
             
@@ -46,6 +56,7 @@ class RecipeTableViewController: UITableViewController {
                 case .success(let meals):
                     self?.recipeList = meals
                     
+                    // reload the tableview once the data has been retrieved
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
@@ -57,6 +68,7 @@ class RecipeTableViewController: UITableViewController {
         }
     }
     
+    // once the user has stop using the list of recipe table view, set the selected category variable as nil
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         appDelegate.selectedCategory = nil
@@ -75,12 +87,14 @@ class RecipeTableViewController: UITableViewController {
         
         let recipe = recipeList[indexPath.row]
         
+        // retrieve the image of the recipe
         let imageURL = URL(string: recipe.strMealThumb!) // fetch image
         URLSession.shared.dataTask(with: imageURL!) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
             
+            // once image has been retrieved, set recipe details
             DispatchQueue.main.async {
                 cell.recipeLabel?.text = recipe.strMeal
                 cell.recipeImage?.image = UIImage(data: data)
@@ -91,11 +105,13 @@ class RecipeTableViewController: UITableViewController {
         return cell
     }
     
+    // transcation to recipe details once, the user has select a recipe from the list
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.viewMeal = recipeList[indexPath.row]
         transitionToRecipeDetails()
     }
     
+    // MARK: transition to recipe details view controller
     func transitionToRecipeDetails() {
         let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.recipeDetails) as! RecipeDetailsViewController
         vc.modalPresentationStyle = .fullScreen
