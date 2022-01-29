@@ -122,14 +122,18 @@ class ShoppingListTableViewController:UITableViewController {
             
             ref.child("users/\(userID)/shoppingList").observeSingleEvent(of: .value, with: { snapshot in
                 
+                // Create new copy dictionary of firebase db
                 var shoppingListDictionary = snapshot.value as? [Dictionary<String, Any>]
                 
+                // Check if firebase copy dictionary is empty
                 if shoppingListDictionary == nil {
                     shoppingListDictionary = []
                 }
                 
+                // Remove row in copied dictionary
                 shoppingListDictionary?.remove(at: indexPath.row)
                 
+                // Update value in firebase based on copied dictionary
                 ref.child("users/\(userID)/shoppingList").setValue(shoppingListDictionary)
             })
 

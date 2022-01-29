@@ -43,8 +43,10 @@ LettuceCook is a recipe meal application which aims to assist and inspire users 
 
 **Ee Jun Kai Julian** - Shopping List
 * View Shopping List
-* Add Recipe Ingredients to Shopping List
+* Add Recipe to Shopping List
+* View Recipe Ingredients in Shopping List
 * Save Shopping List to Firebase
+* Delete Shopping List from Firebase
 
 **Lee Kang Martin Sutton** - App Icon, Launch Screen and Reminders
 * App Icon
@@ -122,3 +124,4 @@ LettuceCook is a recipe meal application which aims to assist and inspire users 
 * [What is JSON - JSON Parsing in Swift by CodeWithChris](https://www.youtube.com/watch?v=_TrPJQWD8qs)
 * [How to Send Local Notification With Swift by Darren](https://programmingwithswift.com/how-to-send-local-notification-with-swift-5/)
 * [How To Build Reminders iOS App in Swift 5 (Xcode 12, 2022) - Beginners by iOS Academy](https://www.youtube.com/watch?v=E6Cw5WLDe-U)
+* [Remove an entire child from Firebase using Swift](https://stackify.dev/669951-remove-an-entire-child-from-firebase-using-swift)

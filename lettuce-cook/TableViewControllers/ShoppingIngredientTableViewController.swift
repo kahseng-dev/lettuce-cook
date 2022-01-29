@@ -17,10 +17,8 @@ class ShoppingIngredientTableViewController:UITableViewController {
         super.viewDidLoad()
         selectedShoppingList = appDelegate.selectedShoppingList
         
-        print(selectedShoppingList?.ingredients)
-    
-        
         if selectedShoppingList != nil {
+            // Set shoppingListIngredient list to selectedShoppingList ingredients list
             shoppingListIngredient = selectedShoppingList!.ingredients
         }
         
@@ -39,6 +37,7 @@ class ShoppingIngredientTableViewController:UITableViewController {
         
         let shoppingListIngredient = shoppingListIngredient[indexPath.row]
         
+        // Set title and measure to recipe ingredient
         cell.textLabel?.text = shoppingListIngredient.strIngredient
         cell.detailTextLabel?.text = shoppingListIngredient.strMeasure
         
