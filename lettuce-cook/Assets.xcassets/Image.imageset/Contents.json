@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "Untitled design (1).png",
-      "idiom" : "universal",
+      "filename" : "Untitled design.png",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "filename" : "Untitled design.png",
-      "idiom" : "universal",
+      "filename" : "Untitled design (1).png",
+      "idiom" : "iphone",
       "scale" : "2x"
     },
     {
       "filename" : "1.png",
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],
