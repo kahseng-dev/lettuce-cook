@@ -13,6 +13,15 @@ class ShoppingListTableViewController:UITableViewController {
     
     var shoppingList:[ShoppingList] = []
     
+    
+    // upon clicking delete reminder button, change table view into edit mode
+    @IBAction func deleteShoppingList(_ sender: Any) {
+        tableView.setEditing (
+            !tableView.isEditing,
+            animated: true
+        )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +49,7 @@ class ShoppingListTableViewController:UITableViewController {
                         if NSingredients != nil {
                             for NSElement in NSingredients! {
                                 
-                                let ingredientObject = NSElement as! AnyObject
+                                let ingredientObject = NSElement as AnyObject
                                 
                                 let ingredient = Ingredient(strIngredient: ingredientObject["strIngredient"] as? String,
                                                             strMeasure: ingredientObject["strMeasure"] as? String)
@@ -77,6 +86,31 @@ class ShoppingListTableViewController:UITableViewController {
         cell.textLabel?.text = shoppingList.title
         
         return cell
+    }
+    
+    // delete shopping list recipe
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // when delete, update table view and delete reminder from core data
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            //reminderDAL.DeleteReminder(reminder: reminders[indexPath.row])
+            
+            // Delete row from firebase
+            let user = FirebaseAuth.Auth.auth().currentUser
+            let userID = user!.uid
+            let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
+                    
+            ref.child("users/\(userID)/shoppingList").observe(.value, with: { snapshot in
+                if snapshot.exists() {
+                    print(snapshot.ref.child("\(indexPath.row)"))
+                    snapshot.ref.child("\(indexPath.row)").removeValue()
+                }
+                
+            })
+            // Remove shoppinglist row after user delete
+            shoppingList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath],
+                                 with: UITableView.RowAnimation.fade)
+        }
     }
     
 }

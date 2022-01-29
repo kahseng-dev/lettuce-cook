@@ -1452,7 +1452,26 @@
                             <outlet property="delegate" destination="vil-7v-1ey" id="e9h-mZ-JNg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Shopping Lists" id="tr4-r3-wzN"/>
+                    <navigationItem key="navigationItem" title="Shopping Lists" id="tr4-r3-wzN">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="eoq-9t-lul">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="mZd-Lg-rpD">
+                                <rect key="frame" x="352" y="1" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="trash.fill" catalog="system" title="" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteReminderButton:" destination="YFg-Yf-dxr" eventType="touchUpInside" id="IPh-EF-48H"/>
+                                    <action selector="reminderDeleteButton:" destination="eWw-eV-q5K" eventType="touchUpInside" id="e8R-KF-nwh"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="deleteShoppingListButton:" destination="vil-7v-1ey" id="Lgj-2h-zOY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeY-5U-V11" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
