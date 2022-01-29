@@ -1464,12 +1464,10 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="deleteReminderButton:" destination="YFg-Yf-dxr" eventType="touchUpInside" id="IPh-EF-48H"/>
+                                    <action selector="deleteShoppingListButton:" destination="vil-7v-1ey" eventType="touchUpInside" id="EAd-zm-D20"/>
                                     <action selector="reminderDeleteButton:" destination="eWw-eV-q5K" eventType="touchUpInside" id="e8R-KF-nwh"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="deleteShoppingListButton:" destination="vil-7v-1ey" id="Lgj-2h-zOY"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

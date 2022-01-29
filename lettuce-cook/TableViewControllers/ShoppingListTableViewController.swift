@@ -11,22 +11,33 @@ import FirebaseDatabase
 
 class ShoppingListTableViewController:UITableViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var shoppingList:[ShoppingList] = []
     
-    
     // upon clicking delete reminder button, change table view into edit mode
-    @IBAction func deleteShoppingList(_ sender: Any) {
+    
+    @IBAction func deleteShoppingListButton(_ sender: Any) {
         tableView.setEditing (
             !tableView.isEditing,
             animated: true
         )
     }
     
+    /*
+    @IBAction func deleteShoppingList(_ sender: Any) {
+        tableView.setEditing (
+            !tableView.isEditing,
+            animated: true
+        )
+    }
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         
+        // authenticate firebase
         let user = FirebaseAuth.Auth.auth().currentUser
         let userID = user!.uid
         let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
@@ -39,13 +50,13 @@ class ShoppingListTableViewController:UITableViewController {
                 if let result = snapshot.children.allObjects as? [DataSnapshot] {
                     for child in result {
                         let array = child.value as! [String: AnyObject]
+                    
                         
-                        var shoppingList = ShoppingList(mealID: array["mealID"] as? String,
-                                                        title: array["title"] as! String)
-                        
+                        // convert ingredients into an NSArray
                         let NSingredients = array["ingredients"] as? NSArray
                         var ingredientList:[Ingredient] = []
                         
+                        // loop through ingredient array to retrieve each ingredient name and measure
                         if NSingredients != nil {
                             for NSElement in NSingredients! {
                                 
@@ -56,7 +67,12 @@ class ShoppingListTableViewController:UITableViewController {
                                 ingredientList.append(ingredient)
                             }
                             
-                            shoppingList.ingredients = ingredientList
+                            // add mealid and title into shoppinglist
+                            let shoppingList = ShoppingList(mealID: array["mealID"] as? String,
+                                                            title: array["title"] as! String,
+                                                            ingredients: ingredientList)
+                            
+                            //append all recipe info into shoppinglist array
                             shoppingLists.append(shoppingList)
                         }
 
@@ -81,8 +97,10 @@ class ShoppingListTableViewController:UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: Constants.Cell.shoppingListCell, for: indexPath)
         
+        // find shoppinglist object based on indexPath.row
         let shoppingList = shoppingList[indexPath.row]
         
+        // set cell title as recipe name
         cell.textLabel?.text = shoppingList.title
         
         return cell
@@ -98,19 +116,31 @@ class ShoppingListTableViewController:UITableViewController {
             let user = FirebaseAuth.Auth.auth().currentUser
             let userID = user!.uid
             let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
-                    
-            ref.child("users/\(userID)/shoppingList").observe(.value, with: { snapshot in
-                if snapshot.exists() {
-                    print(snapshot.ref.child("\(indexPath.row)"))
-                    snapshot.ref.child("\(indexPath.row)").removeValue()
-                }
-                
-            })
+            
             // Remove shoppinglist row after user delete
             shoppingList.remove(at: indexPath.row)
+            
+            ref.child("users/\(userID)/shoppingList").observeSingleEvent(of: .value, with: { snapshot in
+                
+                var shoppingListDictionary = snapshot.value as? [Dictionary<String, Any>]
+                
+                if shoppingListDictionary == nil {
+                    shoppingListDictionary = []
+                }
+                
+                shoppingListDictionary?.remove(at: indexPath.row)
+                
+                ref.child("users/\(userID)/shoppingList").setValue(shoppingListDictionary)
+            })
+
             tableView.deleteRows(at: [indexPath as IndexPath],
                                  with: UITableView.RowAnimation.fade)
         }
+    }
+    
+    // pass clicked row object to shoppingingredient table view controller
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appDelegate.selectedShoppingList = shoppingList[indexPath.row]
     }
     
 }

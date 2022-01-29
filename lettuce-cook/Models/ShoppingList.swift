@@ -10,5 +10,5 @@ import Foundation
 struct ShoppingList {
     var mealID: String?
     var title: String
-    var ingredients: [Ingredient]?
+    var ingredients: [Ingredient]
 }
