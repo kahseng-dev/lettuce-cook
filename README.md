@@ -9,12 +9,13 @@ Ngee Ann Polytechnic ICT Year 2 Sem 4 - MAD2 Assignment
 ## Important Notice! ##
 If you want to run and test our app, after you have cloned the repo, please **Run the Workspace Executable** instead of the regular xcode executable and also **Create a New Schema** in order to run the app.
 
-* insert gif here
+![Create New Scheme GIF](https://media.giphy.com/media/DL7LJSwk6ZQMQgmtvb/giphy.gif)
 
 ## Description ##
 LettuceCook is a recipe meal application which aims to assist and inspire users to cook! Features include a personal account to store information such as shopping lists allowing users to have a more convenient way of gathering the needed ingredients. Bookmarks to keep track of recipes and notification reminder tool to help remind you what to cook next! Diet conscious users can look up the recipe nutritional information or calories intake regarding their dishes.
 
 * [GitHub Repository](https://github.com/kahseng-dev/lettuce-cook)
+* [Youtube Demo](https://www.youtube.com/watch?v=8wWApJSVmQs&feature=youtu.be)
 
 ## Design Process ##
 * **Beginners**
@@ -84,7 +85,9 @@ LettuceCook is a recipe meal application which aims to assist and inspire users 
   * When logged in, view all Bookmarked Recipes
 
 * **Shopping List**
-  * Shopping List
+  * Add Recipe to Shopping List
+  * Delete Shopping List
+  * View Shopping List Ingredients
 
 * **Reminders**
   * Create a Custom Reminder 
