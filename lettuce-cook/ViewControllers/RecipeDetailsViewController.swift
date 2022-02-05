@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import CoreData
 
 class RecipeDetailsViewController: UIViewController {
     
@@ -93,7 +94,27 @@ class RecipeDetailsViewController: UIViewController {
                 // once the image has been fetched show recipe details
                 self?.recipeName.text = self?.viewMeal.strMeal
                 self?.recipeArea.text = self?.viewMeal.strArea
-                self?.recipeInstructions.text = self?.viewMeal.strInstructions
+                
+                // line spacing because font editor keeps reseting on launch
+                let instructions = self?.viewMeal.strInstructions ?? ""
+                
+                let attributedText = NSMutableAttributedString(string: instructions)
+                
+                let paragraphStyle = NSMutableParagraphStyle()
+                
+                paragraphStyle.lineSpacing = 4
+                
+                attributedText.addAttribute(NSMutableAttributedString.Key.paragraphStyle,
+                                             value: paragraphStyle,
+                                             range: NSMakeRange(0, attributedText.length))
+                
+                attributedText.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 18), range: NSMakeRange(0, attributedText.length))
+                
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSMakeRange(0, attributedText.length))
+                
+                self?.recipeInstructions.attributedText = attributedText
+                
+                // continue adding recipe details
                 self?.recipeCategory.text = self?.viewMeal.strCategory
                 self?.recipeImage.image = UIImage(data: data)
             }

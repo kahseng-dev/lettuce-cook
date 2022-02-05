@@ -30,6 +30,7 @@ struct Constants {
         static let reminderCell = "reminderCell"
         static let shoppingListCell = "shoppingListCell"
         static let shoppingIngredientCell = "shoppingIngredientCell"
+        static let searchCell = "searchCell"
     }
     
     struct Firebase {

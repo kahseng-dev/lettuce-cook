@@ -16,24 +16,30 @@ class BookmarksTableViewController: UITableViewController {
     // list of bookmark data to be displayed and used
     var bookmarks:[Meal] = []
     
+    @IBAction func deleteBookmarkButton(_ sender: Any) {
+        tableView.setEditing (
+            !tableView.isEditing,
+            animated: true
+        )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         bookmarks = []
-        tableView.reloadData()
         
-        // MARK: Retrieving User Logged in Account's Shopping List
+        // MARK: Retrieving User Logged in
         let user = FirebaseAuth.Auth.auth().currentUser
         let userID = user!.uid
         let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
         
         // under the bookmarks attribute in firebase retrieve the array
-        ref.child("users/\(userID)/bookmarks").observe(.value, with: { snapshot in
+        ref.child("users/\(userID)/bookmarks").observeSingleEvent(of: .value, with: { snapshot in
+            
             // the bookmarks are stores the mealIDs as String in a array
             let bookmarkIDs = snapshot.value as? [String]
             
@@ -46,7 +52,6 @@ class BookmarksTableViewController: UITableViewController {
                         case .success(let meal):
                             self?.bookmarks.append(meal)
                             
-                            // reload the table view to show the meal
                             DispatchQueue.main.async {
                                 self?.tableView.reloadData()
                             }
@@ -96,6 +101,31 @@ class BookmarksTableViewController: UITableViewController {
         // when the user clicks on the bookmark meal direct them to the recipe details to view the recipe
         appDelegate.viewMeal = bookmarks[indexPath.row]
         transitionToRecipeDetails()
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // when delete, update table view and delete bookmark from core data
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            bookmarks.remove(at: indexPath.row)
+            
+            // MARK: Retrieving User Logged in
+            let user = FirebaseAuth.Auth.auth().currentUser
+            let userID = user!.uid
+            let ref = Database.database(url: Constants.Firebase.databaseURL).reference()
+            
+            var bookmarkIDs:[String] = []
+            
+            for bookmark in bookmarks {
+                bookmarkIDs.append(bookmark.idMeal ?? "")
+            }
+            
+            ref.child("users/\(userID)/bookmarks").setValue(bookmarkIDs)
+            
+            tableView.deleteRows(at: [indexPath as IndexPath],
+                                 with: UITableView.RowAnimation.fade)
+        }
     }
     
     // MARK: transtition to recipe details view

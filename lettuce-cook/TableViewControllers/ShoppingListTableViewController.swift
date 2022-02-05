@@ -23,15 +23,6 @@ class ShoppingListTableViewController:UITableViewController {
         )
     }
     
-    /*
-    @IBAction func deleteShoppingList(_ sender: Any) {
-        tableView.setEditing (
-            !tableView.isEditing,
-            animated: true
-        )
-    }
-     */
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +41,6 @@ class ShoppingListTableViewController:UITableViewController {
                 if let result = snapshot.children.allObjects as? [DataSnapshot] {
                     for child in result {
                         let array = child.value as! [String: AnyObject]
-                    
                         
                         // convert ingredients into an NSArray
                         let NSingredients = array["ingredients"] as? NSArray

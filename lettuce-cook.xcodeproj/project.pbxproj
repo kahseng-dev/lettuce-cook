@@ -14,6 +14,9 @@
 		4C6EE51127A29D0C00275C86 /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */; };
 		4C6EE51327A29F1D00275C86 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51227A29F1D00275C86 /* Reminder.swift */; };
 		4C6EE51627A2E1BC00275C86 /* ReminderCoreDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6EE51527A2E1BC00275C86 /* ReminderCoreDataAccessLayer.swift */; };
+		4CE0D41127AE532F000762A3 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0D41027AE532F000762A3 /* ForgotPasswordViewController.swift */; };
+		4CE0D41327AE7BDF000762A3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0D41227AE7BDF000762A3 /* SearchViewController.swift */; };
+		4CE0D41527AE8454000762A3 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0D41427AE8454000762A3 /* SearchTableViewCell.swift */; };
 		625615EEE292519A93BEBAA0 /* Pods_lettuce_cook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B74DBBC496AF1101B27297 /* Pods_lettuce_cook.framework */; };
 		8423AF88279EB04A003CE435 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423AF87279EB04A003CE435 /* Ingredient.swift */; };
 		8423AF8E279ECB9B003CE435 /* RecipeIngredientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423AF8D279ECB9B003CE435 /* RecipeIngredientDetailsViewController.swift */; };
@@ -61,6 +64,9 @@
 		4C6EE51027A29D0C00275C86 /* ReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		4C6EE51227A29F1D00275C86 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		4C6EE51527A2E1BC00275C86 /* ReminderCoreDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCoreDataAccessLayer.swift; sourceTree = "<group>"; };
+		4CE0D41027AE532F000762A3 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4CE0D41227AE7BDF000762A3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4CE0D41427AE8454000762A3 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		5AEEB46E8596219B5CC89170 /* Pods-lettuce-cook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lettuce-cook.debug.xcconfig"; path = "Target Support Files/Pods-lettuce-cook/Pods-lettuce-cook.debug.xcconfig"; sourceTree = "<group>"; };
 		8423AF87279EB04A003CE435 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		8423AF8D279ECB9B003CE435 /* RecipeIngredientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredientDetailsViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 				845E697727919C3A00BF087F /* CategoriesTableViewCell.swift */,
 				845E697F2791ED1A00BF087F /* ProfileLoginTableViewCell.swift */,
 				845E69812791EF0800BF087F /* ProfileLogoutTableViewCell.swift */,
+				4CE0D41427AE8454000762A3 /* SearchTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -261,6 +268,8 @@
 				8423AF8D279ECB9B003CE435 /* RecipeIngredientDetailsViewController.swift */,
 				8423AF9727A155BC003CE435 /* InstructionsViewController.swift */,
 				4C6EE50E27A29C9C00275C86 /* AddReminderViewController.swift */,
+				4CE0D41027AE532F000762A3 /* ForgotPasswordViewController.swift */,
+				4CE0D41227AE7BDF000762A3 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 				8423AF94279EDF5D003CE435 /* Nutrition.swift in Sources */,
 				8423AF96279EDFD1003CE435 /* NutritionAPIResponse.swift in Sources */,
 				84E9551F278E498C009821EB /* LoginViewController.swift in Sources */,
+				4CE0D41327AE7BDF000762A3 /* SearchViewController.swift in Sources */,
 				4C6EE51627A2E1BC00275C86 /* ReminderCoreDataAccessLayer.swift in Sources */,
 				84E9551D278E4501009821EB /* ProfileViewController.swift in Sources */,
 				84E95521278E4998009821EB /* SignUpViewController.swift in Sources */,
@@ -409,9 +419,11 @@
 				845E697E2791D14F00BF087F /* LatestCollectionViewCell.swift in Sources */,
 				4C6EE51327A29F1D00275C86 /* Reminder.swift in Sources */,
 				845E69822791EF0800BF087F /* ProfileLogoutTableViewCell.swift in Sources */,
+				4CE0D41527AE8454000762A3 /* SearchTableViewCell.swift in Sources */,
 				8423AF88279EB04A003CE435 /* Ingredient.swift in Sources */,
 				8437A7F4278E6013002416F1 /* MealAPICaller.swift in Sources */,
 				845E697C2791B05700BF087F /* CategoriesAPIResponse.swift in Sources */,
+				4CE0D41127AE532F000762A3 /* ForgotPasswordViewController.swift in Sources */,
 				0EA043B327A3E1B3009A2D0A /* ShoppingList.swift in Sources */,
 				845E697627919C2400BF087F /* CategoriesTableViewController.swift in Sources */,
 				845E695B278F0C8A00BF087F /* RecipeDetailsViewController.swift in Sources */,
