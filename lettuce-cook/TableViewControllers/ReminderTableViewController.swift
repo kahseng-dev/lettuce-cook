@@ -15,6 +15,19 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let reminderDAL:ReminderCoreDataAccessLayer = ReminderCoreDataAccessLayer()
     
+    @IBOutlet weak var clearAllButtonUI: UIButton!
+    
+    @IBAction func clearAllButton(_ sender: Any) {
+        
+        // clear core data
+        reminderDAL.ClearAllReminder()
+        
+        tableView.isEditing = false
+        clearAllButtonUI.isHidden = true
+        reminders = []
+        tableView.reloadData()
+    }
+    
     // upon clicking add reminder button, navigate to add reminder view
     @IBAction func addReminderButton(_ sender: Any) {
         transitionToAddReminder()
@@ -26,6 +39,14 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
             !tableView.isEditing,
             animated: true
         )
+        
+        // when tableview is editing state, show clear all button
+        if (tableView.isEditing) {
+            clearAllButtonUI.isHidden = false
+        }
+        else {
+            clearAllButtonUI.isHidden = true
+        }
     }
     
     override func viewDidLoad() {
@@ -37,6 +58,9 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
         self.userNotificationCenter.delegate = self
         
         tableView.reloadData()
+        
+        clearAllButtonUI.isHidden = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +69,8 @@ class ReminderTableViewController:UITableViewController, UNUserNotificationCente
         reminders = reminderDAL.RetreiveAllReminders()
         
         tableView.reloadData()
+        
+        clearAllButtonUI.isHidden = true
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
